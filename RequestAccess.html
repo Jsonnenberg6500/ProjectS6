@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Forms: Request Access</title></head>
+	<body>
+		<h1>Request Access</h1>
+		<form action="php/req_access.php" method="post">
+			<fieldset>
+				<legend>Contact Details</legend>
+				<p><label>First Name: <input type="text" name="firstname" /></label> </p>
+				<p><label>Last Name: <input type="text" name="lastname" /></label> </p>
+				<p><label>Email: <input type="text" name="email" /></label> </p>
+				<p><label>Date of Birth: <input type="date" name="birthday" /></label> </p>
+				<label><input type="radio" name="fac_or_student" value="faculty" /> Faculty </label>
+				<label><input type="radio" name="fac_or_student" value="student" /> Student </label>
+			</fieldset>
+			
+			<br></br>
+			<input type="submit" value="Submit Request" />
+		</form>
+</html>
