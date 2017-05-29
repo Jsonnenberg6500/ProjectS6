@@ -33,7 +33,7 @@ figcaption{ text-align: center;
 	  
 .mkunderlined{text-decoration: underline;}
 		  
-html {	border-width: auto 950px auto 950px;
+body {	border-width: 950px auto 950px auto;
 		border-style: solid solid solid solid;
 		border-color: black black black black;
 		margin: 1px 1px 1px 1px;
