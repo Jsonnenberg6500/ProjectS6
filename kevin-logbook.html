@@ -85,7 +85,9 @@
            <li>Started thinking about how we will interface the Linux-based Supervisory Controller with the PCAN interface. Considered Python for ease of implementation (can be done with prewritten libraries) but I have never programmed in Python so the learning curve will be more of a hinderance than the benefits could provide :(
            <ul>
                <li>
-               Instead, will use the C++ libraries/API that are available from PEAK-Systems (maker of the PCAN).  I ran into some installation issues while trying to install the libraries at home.  I am hoping this will be remedied once I have the device connected to the computer.  If not, I will need to ask Tommy or Riley who I believe have this working already.</li></ul></li>
+               Instead, will use the C++ libraries/API that are available from PEAK-Systems (maker of the PCAN).  I ran into some installation issues while trying to install the libraries at home.  I am hoping this will be remedied once I have the device connected to the computer.  If not, I will need to ask Tommy or Riley who I believe have this working already.
+               <ul>
+                   <li><em>The issue was that I did not have a required library installed: <b>libpopt-dev package</b>, which was specified in the driver's user manual under System Requirements.  This was installed using 'sudo apt-get install libpopt-dev'.</em></li></ul></li></ul></li>
     </ul>
     
 	<h3>Navigation</h3>
