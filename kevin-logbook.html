@@ -56,7 +56,38 @@
             <li>Started setting up seperate projects for each node type with the appropriate filters.  Want to have a header file common to all nodes that defines interconnection of the system (filters, etc)</li>
         </ul>
     </div>
-	
+    
+    <h2>Week 4</h2>
+	   <ul>
+            <li>Created state machine based on a FIFO queue.  Need to confirm/chat with group members to make sure that my design is okay.  In a rough outline:
+           <ul>
+                <li>There will be 4 states: (1) FLOOR 1; (2) FLOOR 2; (3) FLOOR 3; (4) MOVING</li>
+                <li>Transitions between states will occur based on data popped from a stack/FIFO queue:
+               <ul>
+                    <li>As requests are received for floor navigation from each floor or the elevator controller, they will be pushed onto the queue.  The supervisory controller will ensure that no identical floor requests will be stored consecutively (i.e., if the incoming floor request is the same as the last pushed onto the stack, it will be ignored)</li>
+                    <li>The supervisory controller then moves between states by popping from the stack</li></ul></li>
+                <li>Possible issues: this does not consider the state of the door open/closing.  There should possibly be an intermediate state between (any of the) FLOOR and MOVING states:
+               <ul>
+                    <li>Once the state transitions from MOVING to some FLOOR, it should enter a WAITING state where the door is intially assumed open.  Then, before moving to the next floor (indicated by popping data from the stack), it waits for the door to close.  This brings to light several questions regarding my current design of the state machine:
+                        <ol>
+                        <li>Should there be addional OPEN/CLOSED states, within the WAITING state?
+                            <ul>
+                                <li><b>Solution 1:</b> No additional states: the door is initially considered open upon arrival in the WAITING state.  An item is popped immediately and the supervisory controller is already aware of its next transition, but it waits on a message indicating the door has closed before transitioning.</li>
+                                <li><b>Solution 2:</b> Maybe we could replace the WAITING state with OPEN and CLOSED states?</li></ul></li>
+                        <li>What happens when the Car Controller requests a move to a floor and there is an item in the stack waiting to be popped?  How is this handled?
+                            <ul>
+                                <li>Example:  <em>Floors 1 and 2 have both called the elevator respectively, so the stack contains two items to be popped (FLOOR 1 will be popped first).  The elevator is currently at floor 3 where it has just picked up a person who requests floor 2 (on the Car Controller).  Where does the car go? Does their reqest get pushed onto the stack or is there priority for the person in the car already?</em></li></ul></li></ol>
+                   </li>
+                    </ul>
+               </li>
+                </ul>
+           </li>
+           <li>Started thinking about how we will interface the Linux-based Supervisory Controller with the PCAN interface. Considered Python for ease of implementation (can be done with prewritten libraries) but I have never programmed in Python so the learning curve will be more of a hinderance than the benefits could provide :(
+           <ul>
+               <li>
+               Instead, will use the C++ libraries/API that are available from PEAK-Systems (maker of the PCAN).  I ran into some installation issues while trying to install the libraries at home.  I am hoping this will be remedied once I have the device connected to the computer.  If not, I will need to ask Tommy or Riley who I believe have this working already.</li></ul></li>
+    </ul>
+    
 	<h3>Navigation</h3>
 		<nav>
 			<ul>
