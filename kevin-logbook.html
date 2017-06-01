@@ -109,6 +109,13 @@
                    <b>In the pcanread code:</b>
                    <ul>
                    <li>Baud rate set to 250kbps (same change as in the pcanwrite code outlined above)</li></ul></ul></li></ul></li>
+           <li>Discussed state machine with Ovi and James: <ul>
+               <li><em>The stack/FIFO list will hold a maximum of three elements: one for each floor. It cannot hold duplicate requests.</em></li>
+               <li><em>The state machine will have a MOVING state and intermediary transitions:</em>
+               <ul>
+                   <li><b><em>OPEN</em> between <em> MOVING</em> and every <em> FLOOR</em></b></li>
+                   <li><b><em>CLOSED</em> between any <em>FLOOR</em> and MOVING</b></li></ul></li></ul>
+               <li>Having major issues compiling my own source files using the headers that come in the libraries.  There appear to be linking errors...I traced most of them by finding the files that were missing and including them as appropriate (sometimes it was a specific definition within a file that is "undeclared", sometimes it was an entire header file that was missing - "no such file or directory"). <b>However,</b> I finally was able to compile all the separate source code into objects, but when I attempted to link them and output an executable, there were "undefined references to '.....' (files?) that don't appear to exist in ANY of the headers or C files within the libraries.  Are these dynamic libraries that need to be added?  Unfortunately, I cannot tell from the example code because it is <b>compiled with a makefile with syntax that I do not recognize in the slightest.</b> Going to ask Michael Galle about this tomorrow because all the other groups implemented this portion in Python </li>
     </ul>
     
 	<h3>Navigation</h3>
