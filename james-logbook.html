@@ -13,6 +13,8 @@
 			<img src="images/james.jpg" alt="Image of James" title="James Selfie" width=200px/>
 			<figcaption><b>James Sonnenberg:</b> Third year electronics engineering student at Conestoga College </figcaption>
 
+<hr />
+
 		<h2>Week One</h2>
 		<ul>
 			<li>Created schedule in Microsoft Project</li>
@@ -20,6 +22,8 @@
 			<li>Created project block diagram</li>
 			<li>Review project charter</li>
 		</ul>
+
+<hr />
 
 		<h2>Week Two</h2>
 		<ul>
@@ -40,6 +44,8 @@
 			<li>Started writing initial code for CAN communincation from the HCS12</li>
 			<li>Distributed project work for Monday's debrief</li>
 		</ul>
+
+<hr />
 
 		<h2>Week 3</h2>
 		<ul>
@@ -69,9 +75,48 @@
 			</ul>
 		</ul>
 
+<hr />
+
 		<h2>Week 4</h2>
 		<ul>
-			<li>WORK IN PROGESS</li>
+			<li><b>Created Car-Controller Node</b> responsible for:</li>
+			<ul>
+					<li>Requests floors from inside the elevator</li>
+					<li>Displays current floor on 3 LEDs (Green = 1, Yellow = 2, Red = 3)</li>
+					<li>Displays door state (Green = Open, Red = Closed)</li>
+					<li>LEDs to display which floors have been queued</li>
+					<li>Changed protocol so that the Car-Controller listens to the supervisor to know which floor is the destination</li>
+					<li>Listens to the elevator controller to know the position of the car</li>
+			</ul>
+			<li><b>Incoming Messages from Elevator Controller</b></li>
+			<ul>
+					<li>Car Moving = 0x00</li>
+					<li>Car at Floor 1 = 0x01</li>
+					<li>Car at Floor 2 = 0x02</li>
+					<li>Car at Floor 3 = 0x03</li>
+			</ul>
+			<li><b>Incoming Messages from Supervisory Controller</b></li>
+			<ul>
+					<li>No Destination Floor = 0x00</li>
+					<li>Destination Floor is 1 = 0x01</li>
+					<li>Destination Floor is 2 = 0x02</li>
+					<li>Destination Floor is 3 = 0x03</li>
+			</ul>
+			<li><b>Messages to send to the Supervisory Controller</b></li>
+			<ul>
+					<li>Door Closed, No Floor requested = 0x04</li>
+					<li>Door Open, No Floor requested = 0x00</li>
+					<li>Door Closed, Floor 1 requested = 0x05</li>
+					<li>Door Open, Floor 1 requested = 0x01</li>
+					<li>Door Closed, Floor 2 requested = 0x06</li>
+					<li>Door Open, Floor 2 requested = 0x02</li>
+					<li>Door Closed, Floor 3 requested = 0x07</li>
+					<li>Door Open, Floor 3 requested = 0x03</li>
+			</ul>
+			<li><b>Possible features to implement</b></li>
+			<ul>
+					<li>Have the elvator door close automatically after some delay period of inactivity</li>
+			</ul>
 		</ul>
 
 		<h3>Navigation</h3>
