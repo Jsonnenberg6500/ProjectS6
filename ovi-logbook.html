@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Unordered Lists</title>
-		<link href="css/text_style.css" type="text/css" rel="stylesheet" />
+		<title> Ovi Ofrim LogBook </title>
 	<head>
 	<body>
 		<h1 id="top"> Weekly Log Book - Ovi Ofrim </h1>
@@ -65,6 +64,25 @@
 			<li>The acceptance code ID for message 100 is 0x2000, and for ID 200 the code is 0x4000</li>
 			<li>Tested the filters, we now have nodes that can accept multiple message ID's</li>
 			
+		</ul>
+		
+		<h2>Week 4</h2>
+		
+		<ul>
+			
+			<li>When you send a 1 byte message DLC 0, it comes in 1st bit in the data[i] array</li>
+			<li>Setup if statements to check the ID of an elevator position msg</li>
+			<li>If we get the right ID, turn on LED depending on what floor you are on</li>
+			<li>Green LED = floor 1, Yellow LED = floor 2, Red LED = floor 3</li>
+			<li>Built LED/pushbutton setup on Node 1, when I send position mssg ID's the correspoinding light turns on</li>
+			<li>Constantly polling push-button in main, need to write some debounce code instead of a for-loop delay</li>
+			<li>Completed code for each of the 3 floor nodes</li>
+			<li>Completed remaining acceptance code filters, just bit shift required ID by 5 to the left</li>
+			<li>Added an LED for the corresponding request for floor button</li>
+		
+		
+		
+		
 		</ul>
 			
 			
