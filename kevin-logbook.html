@@ -4,11 +4,11 @@
 	<title>Kevin's Logbook</title>
     <link rel="stylesheet"
           type="text/css"
-          href="kevin-logbook.css" />
+          href="css/kevin-logbook.css" />
 </head>
 <body>
     <h1>Kevin's Logbook</h1>
-    <img src="/images/kevin.png" style="width:304px">
+    <img id=selfie src="images/kevin.png" width="200px">
     <div id="WeeklyBorder">
         <h2>Week 1</h2>
             <ul>
@@ -56,7 +56,68 @@
             <li>Started setting up seperate projects for each node type with the appropriate filters.  Want to have a header file common to all nodes that defines interconnection of the system (filters, etc)</li>
         </ul>
     </div>
-	
+    
+    <h2>Week 4</h2>
+	   <ul>
+           <h3><em>Tuesday May 30, 2017</em></h3>
+            <li>Created state machine based on a FIFO queue.  Need to confirm/chat with group members to make sure that my design is okay.  In a rough outline:
+           <ul>
+                <li>There will be 4 states: (1) FLOOR 1; (2) FLOOR 2; (3) FLOOR 3; (4) MOVING</li>
+                <li>Transitions between states will occur based on data popped from a stack/FIFO queue:
+               <ul>
+                    <li>As requests are received for floor navigation from each floor or the elevator controller, they will be pushed onto the queue.  The supervisory controller will ensure that no identical floor requests will be stored consecutively (i.e., if the incoming floor request is the same as the last pushed onto the stack, it will be ignored)</li>
+                    <li>The supervisory controller then moves between states by popping from the stack</li></ul></li>
+                <li>Possible issues: this does not consider the state of the door open/closing.  There should possibly be an intermediate state between (any of the) FLOOR and MOVING states:
+               <ul>
+                    <li>Once the state transitions from MOVING to some FLOOR, it should enter a WAITING state where the door is intially assumed open.  Then, before moving to the next floor (indicated by popping data from the stack), it waits for the door to close.  This brings to light several questions regarding my current design of the state machine:
+                        <ol>
+                        <li>Should there be addional OPEN/CLOSED states, within the WAITING state?
+                            <ul>
+                                <li><b>Solution 1:</b> No additional states: the door is initially considered open upon arrival in the WAITING state.  An item is popped immediately and the supervisory controller is already aware of its next transition, but it waits on a message indicating the door has closed before transitioning.</li>
+                                <li><b>Solution 2:</b> Maybe we could replace the WAITING state with OPEN and CLOSED states?</li></ul></li>
+                        <li>What happens when the Car Controller requests a move to a floor and there is an item in the stack waiting to be popped?  How is this handled?
+                            <ul>
+                                <li>Example:  <em>Floors 1 and 2 have both called the elevator respectively, so the stack contains two items to be popped (FLOOR 1 will be popped first).  The elevator is currently at floor 3 where it has just picked up a person who requests floor 2 (on the Car Controller).  Where does the car go? Does their reqest get pushed onto the stack or is there priority for the person in the car already?</em></li></ul></li></ol>
+                   </li>
+                    </ul>
+               </li>
+                </ul>
+           </li>
+           <li>Started thinking about how we will interface the Linux-based Supervisory Controller with the PCAN interface. Considered Python for ease of implementation (can be done with prewritten libraries) but I have never programmed in Python so the learning curve will be more of a hinderance than the benefits could provide :(
+           <ul>
+               <li>
+               Instead, will use the C++ libraries/API that are available from PEAK-Systems (maker of the PCAN).  I ran into some installation issues while trying to install the libraries at home.  I am hoping this will be remedied once I have the device connected to the computer.  If not, I will need to ask Tommy or Riley who I believe have this working already.
+               <ul>
+                   <li><em>The issue was that I did not have a required library installed: <b>libpopt-dev package</b>, which was specified in the driver's user manual under System Requirements.  This was installed using 'sudo apt-get install libpopt-dev'.</em></li></ul></li></ul></li>
+           
+           <h3><em>Wednesday May 31, 2017</em></h3>
+           
+           <li>Established communication between Linux VM (terminal) and Windows host (PCAN-view) over CAN-bus.  Steps followed are outlined on <a href="www.peak-system.com/forum/viewtopic.php?f=59&t=256"> this </a> blog post (thanks Riley!). Just in case this site is ever unavailable, these were the basic steps after installing the drivers and libraries:
+           <ul>
+               <li>Load the driver/module: <em>"sudo modprobe pcan"</em></li>
+               <li>Check that the driver was installed properly: <em>"cat /proc/pcan"</em></li>
+               <li>Change baud rate (250kbit/s in this example): <em>"echo "i 0x011C e" > /dev/pcan32"</em></li>
+               <li>Observe incoming CAN messages: <em>"cat /dev/pcan32"</em></li></ul></li>
+           <li>Using ATOM editor to write SupervisoryController Linux code in C.
+           <ul>
+               <li>Installed project manager for ATOM using <em>"apm install project-manager"</em></li>
+               <li>Using example code available in the <em>PCAN_Basic_Linux-4.1.1</em> libraries, I was able to get sending and receiving working but I had to make some slight adjustments to the example code:
+               <ul><b>In the pcanwrite code:</b>
+                   <ul>
+                   <li>#define PCAN_DEVICE was changed from PCAN_USBBUS2 to PCAN_USBBUS1</li>
+                   <li>Baud rate set to 250kbps by passing PCAN_BAUD_250K (second argument in function <em>CAN_Initialize()</em></li></ul>
+                   <b>In the pcanread code:</b>
+                   <ul>
+                   <li>Baud rate set to 250kbps (same change as in the pcanwrite code outlined above)</li></ul></ul></li></ul></li>
+           <li>Discussed state machine with Ovi and James: <ul>
+               <li><em>The stack/FIFO list will hold a maximum of three elements: one for each floor. It cannot hold duplicate requests.</em></li>
+               <li><em>The state machine will have a MOVING state and intermediary transitions:</em>
+               <ul>
+                   <li><b><em>OPEN</em> between <em> MOVING</em> and every <em> FLOOR</em></b></li>
+                   <li><b><em>CLOSED</em> between any <em>FLOOR</em> and MOVING</b></li></ul></li></ul>
+               <li>Having major issues compiling my own source files using the headers that come in the libraries.  There appear to be linking errors...I traced most of them by finding the files that were missing and including them as appropriate (sometimes it was a specific definition within a file that is "undeclared", sometimes it was an entire header file that was missing - "no such file or directory"). <b>However,</b> I finally was able to compile all the separate source code into objects, but when I attempted to link them and output an executable, there were "undefined references to '.....' (files?) that don't appear to exist in ANY of the headers or C files within the libraries.  Are these dynamic libraries that need to be added?  Unfortunately, I cannot tell from the example code because it is <b>compiled with a makefile with syntax that I do not recognize in the slightest.</b> Going to ask Michael Galle about this tomorrow because all the other groups implemented this portion in Python </li>
+    </ul>
+    
 	<h3>Navigation</h3>
 		<nav>
 			<ul>
