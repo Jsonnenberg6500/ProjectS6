@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html>
-	<head><title>Forms: Login Page</title></head>
+	<head>
+		<title>Forms: Login Page</title>
+		<link href="css/login_style.css" type="text/css"	rel="stylesheet" />
+	</head>
 	<body>
 		<form action="php/login.php" method="post">
-			
+
 			<h1>Please Login</h1>
-			<p>Username: <input type="text" name="username" /> </p>
-			<p>Password: <input type="text" name="password" /> </p>
-			
-			<input type="submit" value="Log In" />
-			
-			<p><a href="RequestAccess.html">Request Access</a></p>
+			<div>
+				<label for="user" class="text_label">Username:</label>
+				<input id="user" type="text" class="text_input" name="username"  />
+			</div>
+			<div>
+				<label for="pass" class="text_label">Password:</label>
+				<input id="pass" type="password" class="text_input" name="password" required  />
+			</div>
+
+			<div>
+				<input type="submit" value="Log In" id="submit" />
+			</div>
+			<div>
+				<a href="RequestAccess.html">Request Access</a>
+			</div>
+
 		</form>
-	</body>	
+	</body>
 </html>

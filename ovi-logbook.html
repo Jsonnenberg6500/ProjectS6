@@ -2,20 +2,55 @@
 <html lang="en">
 	<head>
 		<title> Ovi Ofrim LogBook </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<head>
 	<body>
+
+		<header id="navbar">
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">CAN Elevator</a>
+					</div>
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="index.html">Home</a></li>
+						<li><a href="project-plan.html">Project Plan</a></li>
+						<li><a href="project-details.html">Project Details</a></li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
+							<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="james-logbook.html">James' Logbook</a></li>
+								<li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
+								<li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+					<li><a href="RequestAccess.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
+				</div>
+			</nav>
+		</header>
+
+
 		<h1 id="top"> Weekly Log Book - Ovi Ofrim </h1>
-		
+
 		<figure>
 			<img src="images/me.jpg" alt="Image of Ovi"
 			title="Ovi" width="100" />
 				<figcaption><b>Ovi Ofrim</b> Developer for Elevator Project
 				</figcaption>
 		</figure>
-		
-		
+
+
 		<h2>Week 1</h2>
-		
+
 		<u1>
 			<li>Started CAN Elevator Project</li>
 			<li>Phase 1 (4 Weeks) Can Network and Protocol </li>
@@ -29,14 +64,14 @@
 			<p></p>
 			<li>Started looking at the AN3034 App Note, and started programming Axeman </li>
 			<li>Found errors, ex: CAN0CTL1 should be CANCTL1 </li>
-			
+
 		</ul>
-		
-		
+
+
 		<h2>Week 2</h2>
-		
+
 		<ul>
-		
+
 			<li>Continued working on the sending code</li>
 			<li>Ran into some problems, we were working in simulation mode, and kept getting
 			errors that MSCAN was not configured</li>
@@ -47,13 +82,13 @@
 			<li>We are unable to trigger the flag that says we have received a message</li>
 			<p></p>
 			<li>Receiving works now, we were just queuing up messages instead of actually sending them in PCANview</li>
-		
+
 		</ul>
-		
+
 		<h2>Week 3</h2>
-		
+
 		<ul>
-			
+
 			<li>Send and Receive works between two Axman</li>
 			<li>Configured a push button to send a CAN message to turn on an LED on another Axman</li>
 			<li>Used DDRA = 0xFF, to configure all 8 bits of port A to be outout</li>
@@ -63,13 +98,13 @@
 			<li>Had a problem where we were initializing the number of filters in two locations causing problems</li>
 			<li>The acceptance code ID for message 100 is 0x2000, and for ID 200 the code is 0x4000</li>
 			<li>Tested the filters, we now have nodes that can accept multiple message ID's</li>
-			
+
 		</ul>
-		
+
 		<h2>Week 4</h2>
-		
+
 		<ul>
-			
+
 			<li>When you send a 1 byte message DLC 0, it comes in 1st bit in the data[i] array</li>
 			<li>Setup if statements to check the ID of an elevator position msg</li>
 			<li>If we get the right ID, turn on LED depending on what floor you are on</li>
@@ -79,28 +114,16 @@
 			<li>Completed code for each of the 3 floor nodes</li>
 			<li>Completed remaining acceptance code filters, just bit shift required ID by 5 to the left</li>
 			<li>Added an LED for the corresponding request for floor button</li>
-		
-		
-		
-		
+
+
+
+
 		</ul>
-			
-			
-		<h3>Navigation</h3>
-		<nav>
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="project-plan.html">Project Plan</a></li>
-				<li><a href="james-logbook.html">James' Log Book</a></li>
-				<li><a href="kevin-logbook.html">Kevin's Log Book</a></li>
-				<li><a href="ovi-logbook.html">Ovi's Log Book</a></li>
-			</ul>
-		</nav>
-		
-		
-		
+
+
+
+
+
 		</u1>
 	</body>
 </html>
-			
-			
