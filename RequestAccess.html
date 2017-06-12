@@ -9,12 +9,30 @@
 		<form action="php/req_access.php" method="post">
 			<fieldset>
 				<legend>Contact Details</legend>
-				<p><label for="user" class="text_label">First Name: <input type="text" name="firstname" /></label></p>
-				<p><label for="user" class="text_label">Last Name: <input type="text" name="lastname" /></label></p>
-				<p><label for="user" class="text_label">Email: <input type="text" name="email" /></label></p>
-				<p><label for="user" class="text_label">Date of Birth: <input type="date" name="birthday" /></label></p>
-				<p><label><input type="radio" name="fac_or_student" value="faculty" /> Faculty </label></p>
-				<p><label><input type="radio" name="fac_or_student" value="student" /> Student </label></p>
+				<div>
+					<p><label for="user" class="text_label">First Name:</label></p>
+					<input id="user" class="text_label" type="text" name="firstname" />
+				</div>
+				<div>
+					<p><label for="user" class="text_label">Last Name:</label></p>
+					<input id="user" class="text_label" type="text" name="lastname" />
+				</div>
+				<div>
+					<p><label for="user" class="text_label">Email:</label></p>
+					<input id="user" class="text_label" type="text" name="email" />
+				</div>
+				<div>
+					<p><label for="user" class="text_label">Date of Birth:</label></p>
+					<input id="user" class="text_label" type="date" name="birthday" />
+				</div>
+				<div>
+					<p><label>Faculty</label></p>
+					<input id="user" class="text_label" type="radio" name="fac_or_student" value="faculty" />
+				</div>
+				<div>
+					<p><label>Student </label></p>
+					<input id="user" class="text_label" type="radio" name="fac_or_student" value="student" />
+				</div>
 			</fieldset>
 
 			<br></br>
