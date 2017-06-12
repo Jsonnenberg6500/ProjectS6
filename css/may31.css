@@ -1,2 +1,9 @@
 h1{text-align: center;}
-table{empty-cells: show;}
+
+table{
+  empty-cells: show;
+  border-width: 2px;
+  border-color: black;
+
+
+     }
