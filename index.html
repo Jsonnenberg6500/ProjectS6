@@ -1,78 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Project VI - About</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Bootstrap Theme Simply Me</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</head>
-	<body>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 10px; letter-spacing: 10px;}
+  .bg-1 { 
+      background-color: #1abc9c;  /* Green 1abc9c */
+      /* background-image:url(images/homepagebackground.jpg);*/
+      color: #ffffff;
+      padding-bottom:0px;
+      padding-top:0px;
+      
+  }
+  .bg-3 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-2 { 
+      background-color: #ffffff; /* White */
+      color: #555555;
+      padding-top: 10px;
+      padding-bottom:50px;
+  }
+  .bg-4 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+.bg-5 { 
+        background-color: white; /* Black Gray */
+        border: 1px 1px 1px 1px;
+        padding-top: 10px;
+        font-size: 15px;
+  }
+  .navbar {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 14px;
+      letter-spacing: 0px;
+  }
+      navbar {
+          position:fixed;
+      }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+      .linkedin-links {
+          color: darkslategray;          
+      }
+      .linkedin-links:hover {
+          color:#1abc9c !important;
+            text-decoration: none;
+      }
+      .linkedin-links:visited {
+          color: darkslategray;
+          text-decoration: none;
+      }
+      .hi {
+          font-size: 25px;
+      }
+      .this {
+          height:10px !important;
+      }
+      .embedimg {
+           padding:1px;
+           border:2px solid #021a40;
+           background-color:#1abc9c;
+        }
+  </style>
+</head>
+    
+<body>
 
+<!-- Navbar -->
+    <header id="navbar">
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"><b></b></a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="project-plan.html">Project Plan</a></li>
+              <li><a href="project-details.html">Project Details</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="james-logbook.html">James' Logbook</a></li>
+                  <li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
+                  <li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="RequestAccess.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+          </div>
+        </nav>
+      </header>
 
-					<header id="navbar">
-				    <nav class="navbar navbar-inverse">
-				      <div class="container-fluid">
-				        <div class="navbar-header">
-				          <a class="navbar-brand" href="#">CAN Elevator</a>
-				        </div>
-				        <ul class="nav navbar-nav">
-				          <li class="active"><a href="index.html">Home</a></li>
-				          <li><a href="project-plan.html">Project Plan</a></li>
-				          <li><a href="project-details.html">Project Details</a></li>
-				          <li class="dropdown">
-				            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
-				            <span class="caret"></span></a>
-				            <ul class="dropdown-menu">
-				              <li><a href="james-logbook.html">James' Logbook</a></li>
-				              <li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
-				              <li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
-				            </ul>
-				          </li>
-				        </ul>
-				        <ul class="nav navbar-nav navbar-right">
-				        <li><a href="RequestAccess.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-				        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-				      </ul>
-				      </div>
-				    </nav>
-				  </header>
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">  
+    <h1 class="margin"><p><b class="hi">P</b> R O J E C T <b class="hi">6</b></p></h1> 
+    <p>REMOTE ELEVATOR CONTROL</p>
+</div>
 
-
-		<h1> Project VI - About</h1>
-		<p>	Welcome to the<i> about</i> page for <b>Project VI</b>. <br />
-		This is where we will provide an overview of our project.
-		In this project we will design an elevator system controlled by a CAN network. <br /> </p>
-		<hr />
-
-		<h2>Our Team</h2>
-
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+		<p>	Welcome to the<i> home</i> page for <b>Project VI</b>. <br />
+		In this project our team designed an elevator system that communicates over a CAN network. <br /> </p>
+    
+    <h2>Our Team</h2>
 		<!--Adding image of our team-->
+    
 		<figure>
-			<img src="images/team.jpg" alt="Image of Team" title="Pringles Cup Champions" width="600" />
+            <div class="container-fluid bg-5 text-center">  
+                
+			<img src="images/team.jpg" alt="Image of Team" title="Pringles Cup Champions" width="600" class="embedimg"/>
 
-			<figcaption><b>James Sonnenberg, Ovi Ofrim, Kevin Hartwig</b> The dream team (shown above) holding the Pringles Cup</figcaption>
+			<figcaption>Left to right: <b>James Sonnenberg, Ovi Ofrim, <a href="https://www.linkedin.com/in/kevin-hartwig-79b948aa/" class="linkedin-links" target="_blank">Kevin Hartwig</a></b></figcaption>  The dream team holding the Pringles Cup, December 2016 </div>
 
 		<h2>Project Block Diagram</h2>
 		<!--Adding image of block diagram-->
 		<figure>
-			<img src="images/BlockDiagram2.jpg" alt="Project Block Diagram" title="Project Block Diagram" width="600" />
+			<img src="images/BlockDiagram2.jpg" alt="Project Block Diagram" title="Project Block Diagram" width="800" class="embedimg"/>
+ 
+</div>
 
-			<figcaption><b>High Level Overview of the Project</figcaption>
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">    
+  <h3 class="margin">//////////////////////////////////////////////////</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <p>Something could go here?</p>
+      <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-4"> 
+      <p>Something could go here?</p>
+      <img src="birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-4"> 
+      <p>Something could go here?</p>
+      <img src="birds3.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+    </div>
+  </div>
+</div>
 
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Copyright Kevin Hartwig, James Sonnenberg and Ovi Ofrim 2017</p> 
+</footer>
 
-	<h3>Navigation</h3>
-		<nav>
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="project-plan.html">Project Plan</a></li>
-				<li><a href="project-details.html">Project Details</a></li>
-				<li><a href="james-logbook.html">James' Log Book</a></li>
-				<li><a href="kevin-logbook.html">Kevin's Log Book</a></li>
-				<li><a href="ovi-logbook.html">Ovi's Log Book</a></li>
-				<li><a href="login.html">Log In</a></li>
-			</ul>
-		</nav>
-	<body>
-<html>
+</body>
+</html>
