@@ -30,9 +30,12 @@ button.accordion.active, button.accordion:hover {
     background-color: #ddd;
 }
 
+.dropdownlogbook {
+    font-size: 15px;
+}
 /* Style the accordion panel. Note: hidden by default */
 div.panel {
-    padding: 0 18px;
+    padding: 0 0px;
     background-color: white;
     display: none;
 }
