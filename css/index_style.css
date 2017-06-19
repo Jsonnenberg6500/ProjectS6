@@ -1,0 +1,105 @@
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+selfie {
+    align-content: center;
+}
+
+
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 10px; letter-spacing: 10px;}
+  .bg-1 { 
+      background-color: #1abc9c;  /* Green 1abc9c */
+      /* background-image:url(images/homepagebackground.jpg);*/
+      color: #ffffff;
+      padding-bottom:0px;
+      padding-top:0px;
+      
+  }
+  .bg-3 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-2 { 
+      background-color: #ffffff; /* White */
+      color: #555555;
+      padding-top: 10px;
+      padding-bottom:50px;
+  }
+  .bg-4 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+.bg-5 { 
+        background-color: white; /* Black Gray */
+        border: 1px 1px 1px 1px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 15px;
+  }
+  .navbar {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 14px;
+      letter-spacing: 0px;
+  }
+      navbar {
+          position:fixed;
+      }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+      .linkedin-links {
+          color: darkslategray;          
+      }
+      .linkedin-links:hover {
+          color:#1abc9c !important;
+            text-decoration: none;
+      }
+      .linkedin-links:visited {
+          color: darkslategray;
+          text-decoration: none;
+      }
+      .hi {
+          font-size: 25px;
+      }
+      .this {
+          height:10px !important;
+      }
+      .embedimg {
+           padding:1px;
+           border:2px solid #021a40;
+           background-color:#1abc9c;
+    }

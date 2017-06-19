@@ -2,14 +2,19 @@
 <html>
 <head>
 	<title>Kevin's Logbook</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet"
           type="text/css"
-          href="css/kevin-logbook.css" />
+          href="css/index_style.css" />
 					<meta charset="utf-8">
 					<meta name="viewport" content="width=device-width, initial-scale=1">
-					<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+					
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 					<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                <script src="kevin-logbook.js"></script>
 </head>
 <body>
 
@@ -17,7 +22,7 @@
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">CAN Elevator</a>
+					<a class="navbar-brand" href="#"></a>
 				</div>
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="index.html">Home</a></li>
@@ -41,22 +46,27 @@
 		</nav>
 	</header>
 
-
-    <h1>Kevin's Logbook</h1>
-    <img id=selfie src="images/kevin.png" width="200px">
+    <div class="container-fluid bg-1 text-center"> 
+        <h1 class="margin">Kevin's Logbook</h1> </div>
+    <div class="container-fluid bg-5 text-center"> 
+        <img src="images/kevin.png" alt="Image of Team" title="Pringles Cup Champions" width="250" class="embedimg"/> </div>
+    
     <div id="WeeklyBorder">
-        <h2>Week 1</h2>
-            <ul>
+        <button class="accordion">Week 1</button>
+        <div class="panel">
+          <ul>
                 <li>Created project schedule</li>
                 <li>Started Phase 1 test plan</li>
                 <li>Tested bus and PCAN adapters using PCAN-view as a group.  All nodes on the bus are operational</li>
                 <li>Started writing code for closed loop feedback testing as a group</li>
             </ul>
+        </div>            
     </div>
-    <div id="WeeklyBorder">
-	<h2>Week 2</h2>
-
-        <ul>
+    
+    
+        <button class="accordion">Week 2</button>
+        <div class="panel">
+            <ul>
             <li>Inherited CAN protocol designed by Tommy and his group</li>
             <li>Completed detailed testing plan document for all Phase one validation requirements.  Test is broken into two main sections:
                 <ol>
@@ -80,20 +90,25 @@
             </li>
             <li>Helped Ovi and James debug code for sending/receiving via CAN bus between two Axmans</li>
         </ul>
-    </div>
-    <div id="WeeklyBorder">
-        <h2>Week 3</h2>
-        <ul>
+        </div>    
+    
+   <div id="WeeklyBorder">
+        <button class="accordion">Week 3</button>
+        <div class="panel">
+          <ul>
             <li>Got filtering working (multiple filters can now be set for each node)
             <ul>
                 <li>Issue was with that we used code from the AN3034 appnote for sending and code from Bill (Stefanuk) for receiving.  It turns out that we were applying filters in the CANinit() function from the appnote and <b><i>again</i></b> in Bill's MSCANlisten().  The second time we applied the filter we overwrote the previous filters that were applied. </li>
                 <li>After solving this issue we are able to apply multiple filters and have confirmed that sending </li></ul></li>
             <li>Started setting up seperate projects for each node type with the appropriate filters.  Want to have a header file common to all nodes that defines interconnection of the system (filters, etc)</li>
         </ul>
-    </div>
-
-    <h2>Week 4</h2>
-	   <ul>
+        </div>            
+    </div> 
+    
+    <div id="WeeklyBorder">
+        <button class="accordion">Week 4</button>
+        <div class="panel">
+          <ul>
            <h3><em>Tuesday May 30, 2017</em></h3>
             <li>Created state machine based on a FIFO queue.  Need to confirm/chat with group members to make sure that my design is okay.  In a rough outline:
            <ul>
@@ -175,6 +190,9 @@
            <h3><em>Monday June 5, 2017</em></h3>
            <li>Everyone solved their issues.  Performed final system testing and the system is working as required.</li>
     </ul>
+        </div>            
+    </div> 
+	   
 
 </body>
 </html>
