@@ -1,0 +1,70 @@
+div.content{
+
+padding-left: 15%;
+padding-right: 15%;
+    
+    
+}
+
+
+table.table1{
+
+border: 1px solid;
+border-collapse: separate;
+empty-cells: show;
+
+     
+border-spacing: 3px;
+
+    
+      
+}
+
+td.tabledata{
+align-content: center;
+border: 1px solid;       
+border-spacing: 3px;
+    
+padding: 1px 10px 1px 10px;
+    
+
+}
+
+td.ovi{
+background-color: cornflowerblue;
+    
+}
+
+td.all{
+background-color: red;
+    
+}
+
+td.kevin{
+background-color:darkorchid
+}
+
+td.james{
+background-color:burlywood
+    
+}
+
+th.frow{
+align-content: center;  
+border: 1px solid;       
+border-spacing: 3px;
+    
+padding: 1px 10px 1px 10px;
+}
+
+th.tablehead{
+align-content: center;
+border: 1px solid;       
+border-spacing: 3px;
+    
+padding: 1px 10px 1px 10px;
+    
+
+    
+    
+}
