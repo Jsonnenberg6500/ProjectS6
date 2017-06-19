@@ -1,4 +1,55 @@
 <!DOCTYPE html>
+<button class="accordion">Section 1</button>
+<div class="panel">
+  <p>Lorem ipsum...</p>
+</div>
+<style>
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    } </style>
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+}
+</script>
 <html>
 <head>
 	<title>Kevin's Logbook</title>
@@ -14,7 +65,7 @@
 					
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 					<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                <script src="kevin-logbook.js"></script>
+                    <script src="kevin-logbook.js"></script>
 </head>
 <body>
 
@@ -49,9 +100,9 @@
     <div class="container-fluid bg-1 text-center"> 
         <h1 class="margin">Kevin's Logbook</h1> </div>
     <div class="container-fluid bg-5 text-center"> 
-        <img src="images/kevin.png" alt="Image of Team" title="Pringles Cup Champions" width="250" class="embedimg"/> </div>
+        <img src="images/kevin.png" alt="Image of Team" title="Kevin Hartwig" width="250" class="embedimg"/> </div>
     
-    <div id="WeeklyBorder">
+   
         <button class="accordion">Week 1</button>
         <div class="panel">
           <ul>
@@ -60,12 +111,11 @@
                 <li>Tested bus and PCAN adapters using PCAN-view as a group.  All nodes on the bus are operational</li>
                 <li>Started writing code for closed loop feedback testing as a group</li>
             </ul>
-        </div>            
-    </div>
+        </div>     
     
     
         <button class="accordion">Week 2</button>
-        <div class="panel">
+        <div>
             <ul>
             <li>Inherited CAN protocol designed by Tommy and his group</li>
             <li>Completed detailed testing plan document for all Phase one validation requirements.  Test is broken into two main sections:
@@ -94,7 +144,7 @@
     
    <div id="WeeklyBorder">
         <button class="accordion">Week 3</button>
-        <div class="panel">
+        <div>
           <ul>
             <li>Got filtering working (multiple filters can now be set for each node)
             <ul>
@@ -107,7 +157,7 @@
     
     <div id="WeeklyBorder">
         <button class="accordion">Week 4</button>
-        <div class="panel">
+        <div>
           <ul>
            <h3><em>Tuesday May 30, 2017</em></h3>
             <li>Created state machine based on a FIFO queue.  Need to confirm/chat with group members to make sure that my design is okay.  In a rough outline:
