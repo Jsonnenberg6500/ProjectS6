@@ -1,21 +1,7 @@
 /* kevin-logbook.css */
 
-body {
-    background-color: black;
-    color:aliceblue;
-}
-
 h1 {
     text-align: center;
     font-family:cursive;
 }
 
-#WeeklyBorder {
-    background-color: black;
-    background-blend-mode:exclusion;
-    color:
-}
-
-#seflie {
-    text-align: center;
-}
