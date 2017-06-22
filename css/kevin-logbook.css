@@ -1,7 +1,9 @@
 /* kevin-logbook.css */
 
-h1 {
-    text-align: center;
-    font-family:cursive;
+#Caption {
+    color:black;
 }
 
+header, section, footer, aside, nav, article, figure {
+    display:block;
+}

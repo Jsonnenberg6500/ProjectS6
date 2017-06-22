@@ -1,3 +1,9 @@
+
+/* Older browsers: Display HTML5 elements as block */
+header, section, footer, aside, nav, article, figure {
+    display:block;
+}
+
 /* Style the buttons that are used to open and close the accordion panel */
 button.accordion {
     background-color: #eee;
@@ -127,5 +133,4 @@ selfie {
            border:2px solid #021a40;
            background-color:#1abc9c;
            resize: both;
-           max-width: 300px;
     }
