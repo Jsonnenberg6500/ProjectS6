@@ -12,6 +12,10 @@ button.accordion {
     transition: 0.4s;
 }
 
+#logo {
+    max-height: 170%;
+}
+
 button.accordion:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
     font-size: 20px;
