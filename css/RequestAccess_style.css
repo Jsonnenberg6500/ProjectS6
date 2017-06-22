@@ -1,0 +1,64 @@
+body{
+  background-color: white;
+}
+
+legend{
+  background-color: lightblue;
+  color: white;
+  border-radius: 5px;
+}
+
+#submit{
+  background-color: lightblue;
+  border-radius: 5px;
+  color: white;
+
+  margin-left: 320px;
+}
+
+#submit:hover {
+    background-color: black;
+}
+
+#submit:active {
+    background-color: red;
+}
+
+#requesttype{
+  display: inline-block;
+}
+
+.text_label {
+  float: left;
+  width: 100px;
+  text-align: right;
+  padding: 0px 10px 0px 0px;
+}
+
+.text_input {
+  width: 150px;
+  text-align: left;
+  padding: 0px 0px 0px 10px
+}
+
+div {
+  padding: 10px 0px;
+  width: 274px;
+  height: 10px;
+}
+
+label{
+  font-weight: bold;
+}
+
+fieldset{
+  width: 400px;
+}
+
+textarea{
+                        /* NEED TO CHANGE THIS IMAGE TO THE TEAM LOGO */
+  background-image: url(http://www.critterbabies.com/wp-content/uploads/2013/11/koala.jpg);
+  background-size: 50px;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+}

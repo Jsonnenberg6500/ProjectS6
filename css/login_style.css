@@ -33,6 +33,14 @@
     font-weight: bold;
 }
 
+<<<<<<< HEAD
+#requesttype {
+  display: inline-block;
+}
+
+#submit {
+  float: right;
+=======
 /* Close button on hover */
 .close:hover,
 .close:focus {
@@ -135,6 +143,7 @@ span.psw {
     .cancelbtn {
         width: 100%;
     }
+>>>>>>> ed4f0eab7d23c63cf7566175264222ca192ab7c1
 }
 
 
