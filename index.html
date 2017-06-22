@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/index_style.css" />
+    <link rel="stylesheet" type="text/css" href="css/login_style.css" />
+        <script scr="index.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
@@ -38,7 +40,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
             <li><a href="RequestAccess.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
           </div>
         </nav>
@@ -69,7 +71,7 @@
 		<!--Adding image of block diagram-->
 		<figure>
             <img src="images/BlockDiagram2.jpg" alt="Project Block Diagram" title="Project Block Diagram" width="800" class="embedimg"/> </figure>
- 
+        </figure>
 </div>
 
 <!-- Third Container (Grid) -->
@@ -95,6 +97,36 @@
 <footer class="container-fluid bg-4 text-center">
   <p>Copyright Kevin Hartwig, James Sonnenberg and Ovi Ofrim 2017</p> 
 </footer>
+    
+    
+    <!-- The Modal -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" 
+class="close" title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <img src="/images/logo.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit">Login</button>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw"> <a href="#">Sign Up </a></span>
+    </div>
+  </form>
+</div>
 
 </body>
 </html>
