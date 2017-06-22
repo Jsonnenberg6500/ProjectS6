@@ -16,4 +16,10 @@ div {
   width: 274px;
 }
 
-#submit {float: right;}
+#requesttype {
+  display: inline-block;
+}
+
+#submit {
+  float: right;
+}

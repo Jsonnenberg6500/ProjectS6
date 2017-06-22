@@ -1,39 +1,55 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Forms: Request Access</title>
-		<link href="css/login_style.css" type="text/css"	rel="stylesheet" />
-	</head>
-	<body>
-		<h1>Request Access</h1>
-		<form action="php/req_access.php" method="post">
-			<fieldset>
-				<legend>Contact Details</legend>
-				<div>
-					<p><label for="user" class="text_label">First Name:</label></p>
-					<input id="user" class="text_label" type="text" name="firstname" />
-				</div>
-				<div>
-					<p><label for="user" class="text_label">Last Name:</label></p>
-					<input id="user" class="text_label" type="text" name="lastname" />
-				</div>
-				<div>
-					<p><label for="user" class="text_label">Email:</label></p>
-					<input id="user" class="text_label" type="text" name="email" />
-				</div>
-				<div>
-					<p><label for="user" class="text_label">Date of Birth:</label></p>
-					<input id="user" class="text_label" type="date" name="birthday" />
-				</div>
-				<div>
-					<label>Faculty
-					<input id="user" class="text_label" type="radio" name="fac_or_student" value="faculty" /></label>
-					<label>Student
-					<input id="user" class="text_label" type="radio" name="fac_or_student" value="student" /></label>
-				</div>
-			</fieldset>
+<htmL>
+    <head>
+      <title>Request Access</title>
+      <link href="css/RequestAccess_style.css" type="text/css" rel="stylesheet" />
+    </head>
 
-			<br></br>
-			<input type="submit" value="Submit Request" />
-		</form>
+    <body>
+        <form action="php/login.php" mehod="post">
+          <h1>Request Access</h1>
+          <fieldset>
+            <legend>Contact Details</legend>
+            <div>
+                <label for="user" class="text_label">First Name:</label>
+                <input id="user" class="text_label" type="text" name="firstname" />
+            </div>
+            <div>
+                <label for="user" class="text_label">Last Name:</label>
+                <input id="user" class="text_label" type="text" name="lastname" />
+            </div>
+            <div>
+                <label for="user" class="text_label">Email:</label>
+                <input id="user" class="text_label" type="text" name="email" />
+            </div>
+            <div>
+                <label for="user" class="text_label">Birth date:</label>
+                <input id="user" class="text_label" type="text" name="birthdate" value=" mm / dd / yyyy" />
+            </div>
+
+            <div id="requesttype">
+              <label for="user" class="text_label">Request Type:</label>
+              <input id="user" class="faculty_student" type="radio" name="faculty_student" value="faculty" />Faculty
+              <input id="user" class="faculty_student" type="radio" name="faculty_student" value="student" />Student
+            </div>
+
+            </fieldset>
+
+            <br>
+            <p>Tell us a bit about yourself</p>
+
+            <textarea rows="10" cols="57" placeholder="Please enter your comments here ... "></textarea>
+
+
+            <div>
+              <input type="submit" value="Submit Request" id="submit"/>
+            </div>
+
+            <br><br>
+
+            <p> Copyright &copy 2017</p>
+        </form>
+    </body>
+
+
 </html>
