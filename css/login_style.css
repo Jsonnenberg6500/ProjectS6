@@ -79,6 +79,15 @@ input[type=text], input[type=password] {
     box-sizing:padding-box;
 }
 
+textarea[type=bio] {
+    width: 100%;
+    padding: 12px 20px;
+    margin 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: padding-box;
+}
+
 /* Set a style for all buttons */
 button {
     background-color: #1abc9c;
@@ -90,13 +99,25 @@ button {
     width: 100%;
 }
 
+#counter {
+    border: none !important;
+    background-color: white !important;
+    padding-right: 0;
+}
+
+
+button.signupbtn {
+    float: right;
+    width: 50%;
+}
+
 /* Add a hover effect for buttons */
 button:hover {
     opacity: 0.8;
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn,.signupbtn {
+.cancelbtn {
     float: left;
     width: 50%;
 }
@@ -145,7 +166,9 @@ span.psw {
     }
 }
 
-
+#bio {
+    width:100%;
+}
 
 /* Clear floats */
 .clearfix::after {
