@@ -61,29 +61,29 @@ selfie {
   }
   p {font-size: 16px;}
   .margin {margin-bottom: 10px; letter-spacing: 10px;}
-  .bg-1 { 
+  .bg-1 {
       background-color: #1abc9c;  /* Green 1abc9c */
       /* background-image:url(images/homepagebackground.jpg);*/
       color: #ffffff;
       padding-bottom:0px;
       padding-top:0px;
-      
+
   }
-  .bg-3 { 
+  .bg-3 {
       background-color: #474e5d; /* Dark Blue */
       color: #ffffff;
   }
-  .bg-2 { 
+  .bg-2 {
       background-color: #ffffff; /* White */
       color: #555555;
       padding-top: 10px;
       padding-bottom:50px;
   }
-  .bg-4 { 
+  .bg-4 {
       background-color: #2f2f2f; /* Black Gray */
       color: #fff;
   }
-.bg-5 { 
+.bg-5 {
         background-color: white; /* Black Gray */
         border: 1px 1px 1px 1px;
         padding-top: 10px;
@@ -106,7 +106,7 @@ selfie {
       color: #1abc9c !important;
   }
       .linkedin-links {
-          color: darkslategray;          
+          color: darkslategray;
       }
       .linkedin-links:hover {
           color:#1abc9c !important;
@@ -126,6 +126,6 @@ selfie {
            padding:1px;
            border:2px solid #021a40;
            background-color:#1abc9c;
-            resize: both;
+           resize: both;
+           max-width: 300px;
     }
-
