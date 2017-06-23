@@ -59,6 +59,14 @@ selfie {
     align-content: center;
 }
 
+#teamphoto {
+  float: left;
+}
+
+#sidebar{
+     border: clear black 2px;
+}
+
 
   body {
       font: 20px Montserrat, sans-serif;
