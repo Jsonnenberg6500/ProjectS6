@@ -36,6 +36,8 @@ figcaption{ text-align: center;
 
 #enclose {
 		width: 950px;
+        /* width: 100%; */
+        color: black;
 		height: auto;
 		border: 2px solid black;
 		margin: auto;

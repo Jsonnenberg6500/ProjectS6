@@ -40,5 +40,3 @@ elUsername.addEventListener('blur', checkUserName, false);
 elPassword.addEventListener('blur', checkPassword, false);
 
 
-
-

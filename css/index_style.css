@@ -20,6 +20,8 @@ button.accordion {
 
 #logo {
     max-height: 170%;
+    box-shadow: none;
+    border: none;
 }
 
 button.accordion:after {
@@ -74,7 +76,7 @@ selfie {
       color: #f5f6f7;
   }
   p {font-size: 16px;}
-  .margin {margin-bottom: 10px; letter-spacing: 10px;}
+  .margin {margin-bottom: 10px; letter-spacing: 10px; color: white; font-family: sans-serif;}
   .bg-1 {
       background-color: #1abc9c;  /* Green 1abc9c */
       /* background-image:url(images/homepagebackground.jpg);*/

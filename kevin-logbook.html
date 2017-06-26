@@ -23,33 +23,34 @@
 </head>
 <body>
 
-	<header id="navbar">
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#"></a>
-				</div>
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="project-plan.html">Project Plan</a></li>
-					<li><a href="project-details.html">Project Details</a></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
-						<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="james-logbook.html">James' Logbook</a></li>
-							<li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
-							<li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-				<li><a href="RequestAccess.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-				<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-			</ul>
-			</div>
-		</nav>
-	</header>
+    <header id="navbar">
+        <nav class="navbar navbar-inverse">
+
+          <div class="container-fluid">
+            <div class="navbar-header logodiv">
+              <a class="navbar-brand" href="#"><img id="logo" src="/images/logo.png"/></a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="project-plan.html">Project Plan</a></li>
+              <li><a href="project-details.html">Project Details</a></li>
+              <li class="dropdown active">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="james-logbook.html">James' Logbook</a></li>
+                  <li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
+                  <li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a onclick="document.getElementById('id02').style.display='block'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+          </div>
+        </nav>
+      </header>
 
     <div class="container-fluid bg-1 text-center">
         <h1 class="margin">Kevin's Logbook</h1> </div>
@@ -217,7 +218,13 @@
     <button class="accordion">Week 7</button>
         <div class="panel bg-2 dropdownlogbook">
           <ul>
-                <li>WHAT?</li>
+                <li>Finished up the login and sign up forms, with PHP for each:
+                    <ul>
+                        <li>Made a modal (new window) form for each, code taken from <a href="https://www.w3schools.com/howto/howto_css_login_form.asp">here</a></li>
+                    <li>Created PHP login capability using sessions.  Login credentials are hardcoded with Username: Admin and Password: pass</li>
+                    <li>No database yet and thus no ability to log new credentials- Currently, the sign up form submission takes you to a PHP page that displays the form data that was entered</li>
+                    </ul></li>
+              <li></li>
             </ul>
         </div>
 
