@@ -26,7 +26,7 @@
     );
 
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
+    
     $query = 'SELECT username,password FROM memberInfo
               WHERE username = :username AND password = :password';
     $statement = $dbh->prepare($query);

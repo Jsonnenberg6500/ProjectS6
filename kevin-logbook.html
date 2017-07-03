@@ -221,10 +221,58 @@
                 <li>Finished up the login and sign up forms, with PHP for each:
                     <ul>
                         <li>Made a modal (new window) form for each, code taken from <a href="https://www.w3schools.com/howto/howto_css_login_form.asp">here</a></li>
-                    <li>Created PHP login capability using sessions.  Login credentials are hardcoded with Username: Admin and Password: pass</li>
-                    <li>No database yet and thus no ability to log new credentials- Currently, the sign up form submission takes you to a PHP page that displays the form data that was entered</li>
+                    	<li>Created PHP login capability using sessions.  Login credentials are hardcoded with Username: Admin and Password: pass</li>
+                    	<li>No database yet and thus no ability to log new credentials- Currently, the sign up form submission takes you to a PHP page that displays the form data that was entered</li>
                     </ul></li>
-              <li></li>
+            </ul>
+        </div>
+
+	<button class="accordion">Week 8</button>
+        <div class="panel bg-2 dropdownlogbook">
+          <ul>
+                <li>Made a MariaDB schema called Project6 with a table "memberInfo" allowing use of login credentials:
+                    <ul>
+                        <li>Can use the signup form to add new credentials to the database table (request_access.php)</li>
+                    	<li>Login form queries the database for a username and password pair that match the form entries (authenticate.php)</li>
+						<li>I used php function "sha1" to encrypt the password going into the table! </li>
+						<li>Can use default login credentials (username: admin, password: password) </li>
+                    	<li>Code was taken from both the lecture slides and a tutorial on login credentials which can be found <a href="https://www.phpro.org/tutorials/Basic-Login-Authentication-with-PHP-and-MySQL.html">here</a></li>
+                    </ul>
+				</li>
+				<li>Downloaded and installed Netbeans IDE and got it set up with C++ Connecter from MySQL (<a href="https://dev.mysql.com/downloads/connector/cpp/">here</a>)
+					<ul>
+						<li>One thing that I had to do that was not included in the lecture slides was add <em>../../Downloads/mysql-connector-c++-1.1.9-linux-ubuntu16.04-x86-64bit/lib</em> to the additional libraries section of the project's Linker properties
+						</li>
+					</ul>
+				</li>
+				<li>Got the C++ Connector implemented with the Linux based Supervisor code (the lecture notes set it up in the Netbeans IDE) It took a little while, but I managed to get everything to link correctly by editing the Makefile.  <b>The only remaining issue is an error that throws:</b>
+					<ul>
+						<li><em>error while loading shared libraries: libmysqlcppconn.so.7: cannot open shared object file: No such file or directory</em>
+						</li>
+					</ul>However this was fixed temporarily by editing the environmental variable <em>LD_LIBRARY_PATH</em> using the following command in terminal:
+					<ul>
+						<li><em>export LD_LIBRARY_PATH="/home/k3v/GitHubRepos/CAN-Node-Code/SupervisoryController/mysql-connector-c++-1.1.9-linux-ubuntu16.04-x86-64bit/lib"</em>
+						</li>
+						<li>This can apparently be done permanently (see <a href="https://serverfault.com/questions/201709/how-to-set-ld-library-path-in-ubuntu">here</a>) but I'd like to find a more portable solution</li>
+					</ul>
+				</li>
+				<li>I'm working on a new branch. So if somehow my meddling with the code has interfered with any of the PCAN functionality, here is what I have edited:
+					<ul>
+						<li>Makefile: 	Added library directories with -L<em>path</em></li>
+						<li>Makefile: 	Added libraries with -l<em>path</em></li>
+						<li>Makefile: 	Added include directories with -I<em>path</em></li>
+						<li>main.c: 	Changed to <em>main.cpp</em> in order to support the Connector C++ MySQL functionality (makefile already compiles with g++)</li>
+						<li>main.c: 	Added <em>connectMySQL</em> function that connects to the (local) MySQL database </li>
+						</li>
+					</ul>
+				</li>
+				<li><b><em>Questions for Michael:</em></b>
+					<ol>
+						<li>For the supervisor, would it be standard to keep the connection (sql::Connection variable) open for the entire time the program is running? Or do you open it and delete it every time that you need to? </li>
+						<li>This is probably answered along with the last question...but does keeping the connetion active interfere with connections made from other sources? (DBO in php?) </li>
+					</ol>
+				</li>
+				<li>It is proving a pain to try to format date/time with leading zeros where they are needed (in C). However I found a function I can look into: strftime() --> see <a href="http://www.cplusplus.com/reference/ctime/strftime/">here</a></li>
             </ul>
         </div>
 

@@ -1,18 +1,24 @@
 <?php
+
+    /* Get form data */
     $email = $_POST['email'];
     $username = $_POST['username_signup'];
     $password = $_POST['password_signup'];
     $password2 = $_POST['passwordrepeat_signup'];
     $bio = $_POST['bio'];
 
+    /* Print out form data
     echo "Your Username: " . $username . "<br />";
     echo "Your Email: " . $email . "<br />";
     echo "Password: " . $password . "<br />";
-    $password = sha1($password);
     echo "Password after encryption: " . $password . "<br />";
     echo "bio: " . $bio . "<br />";
+    */
 
     echo "<a href='logout.php'>Click</a> to return home.";
+
+    /* Encrypt password */
+    $password = sha1($password);
 
     /*** connect to database ***/
     /*** mysql hostname ***/
@@ -34,6 +40,7 @@
         $mysql_password
     );
 
+    /* Formatted query for insert */
     $query = 'INSERT INTO memberInfo (username,password,email,bio)
               VALUES (:username,:password,:email,:bio)';
     $statement = $dbh->prepare($query);
