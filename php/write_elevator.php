@@ -26,6 +26,6 @@ function update_elevator(int $node_ID, int $new_status = 1): void{
      }
 }
 
-update_elevator(2,25);
-update_elevator(100,5);
+update_elevatorNetwork(2,25);
+update_elevatorNetwork(100,5);
 ?>
