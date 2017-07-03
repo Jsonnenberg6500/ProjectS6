@@ -268,12 +268,24 @@
 				</li>
 				<li><b><em>Questions for Michael:</em></b>
 					<ol>
-						<li>For the supervisor, would it be standard to keep the connection (sql::Connection variable) open for the entire time the program is running? Or do you open it and delete it every time that you need to? </li>
-						<li>This is probably answered along with the last question...but does keeping the connetion active interfere with connections made from other sources? (DBO in php?) </li>
+						<li>For the supervisor, would it be standard to keep the connection (sql::Connection variable) open for the entire time the program is running? Or do you open it and delete it every time that you need to?
+						<p><font color="red">Yes, you can keep the TCP connection open for the entirety of the program</font></p></li>
+						<li>This is probably answered along with the last question...but does keeping the connetion active interfere with connections made from other sources? (DBO in php?)
+						<p><font color="red">No</font></p></li>
 					</ol>
 				</li>
 				<li>It is proving a pain to try to format date/time with leading zeros where they are needed (in C). However I found a function I can look into: strftime() --> see <a href="http://www.cplusplus.com/reference/ctime/strftime/">here</a></li>
-            </ul>
+				<li>Had to reinstall the PCAN driver for some reason.  I was getting errors where PCAN files were not found in /sys/ folder (follow the blog post from week 4 and go from <em>make clean</em> command) </li>
+				<li><b>Established the design of the database/schema.  There will be 5 tables in total: </b>
+					<ol>
+						<li><b><em>memberInfo</em></b>: holds info of member credentials (all form info submitted in the sign up form)</li>
+						<li><b><em>currentState</em></b>: holds 3 items/columns (only one row EVER): current elevator position, door state, and other (TBD) </li>
+						<li><b><em>clientRequests</em></b>: for James, holds the requestID and a boolean value indicating active or inactive.  The client updates the boolean values when requests are made and the supervisor will revert them back once the request is fulfilled. </li>
+						<li><b><em>clientQueue</em></b>: a FIFO queue updated by the client interface/UI that holds client requests. They are removed by the supervisor control program.</li>
+						<li><b><em>CANLog</em></b>: log of all CAN activity, updated solely by the supervisor control program</li>
+					</ol>
+				</li>
+			</ul>
         </div>
 
 
