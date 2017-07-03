@@ -31,7 +31,7 @@
     $mysql_password = '';
 
     /*** database name ***/
-    $mysql_dbname = 'Project6';
+    $mysql_dbname = 'elevator';
 
     /* New database object */
     $dbh = new PDO(
