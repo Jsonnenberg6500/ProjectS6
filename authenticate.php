@@ -16,7 +16,7 @@
     $mysql_password = '';
 
     /*** database name ***/
-    $mysql_dbname = 'Project6';
+    $mysql_dbname = 'elevator';
 
     /* New database object */
     $dbh = new PDO(
@@ -26,7 +26,7 @@
     );
 
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    
+
     $query = 'SELECT username,password FROM memberInfo
               WHERE username = :username AND password = :password';
     $statement = $dbh->prepare($query);
