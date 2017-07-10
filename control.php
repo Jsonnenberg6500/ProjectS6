@@ -76,14 +76,19 @@
               <br>
               <p>Floor 1: </p>
               <img src="images/floor1.png" title="Floor 1 Button" class="button"><img>
+              <input type="submit" class="button" name="Request" value="Floor 1" />
               <p>Floor 2: </p>
               <img src="images/Floor2.png" title="Floor 2 Button" class="button"><img>
+              <input type="submit" class="button" name="Request" value="Floor 2" />
               <p>Floor 3: </p>
               <img src="images/Floor3.png" title="Floor 3 Button" class="button"><img>
+              <input type="submit" class="button" name="Request" value="Floor 3" />
               <p>Door Open </p>
               <img src="images/floor1.png" title="Door Open Button" class="button"><img>
+              <input type="submit" class="button" name="Request" value="Door Open" />
               <p>Door Close </p>
               <img src="images/floor1.png" title="Door Close Button" class="button"><img>
+              <input type="submit" class="button" name="Request" value="Door Close" />
             </div>
             <div class="col-md-2">
             </div>
@@ -95,7 +100,7 @@
             </div>
        </div>
 
-       
+
   </div>
 </body>
 </html>
