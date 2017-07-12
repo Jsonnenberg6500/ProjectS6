@@ -1,38 +1,186 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Forms: Login Page</title>
-		<link href="css/login_style.css" type="text/css"	rel="stylesheet" />
-	</head>
-	<!-- Button to open the modal login form -->
-<button onclick="document.getElementById('id01').style.display='block'">Login</button>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index_style.css" />
+        <link href="css/signup.css" type="text/css" rel="stylesheet" />
 
-<!-- The Modal -->
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" 
-class="close" title="Close Modal">&times;</span>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
 
-  <!-- Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
-    <div class="imgcontainer">
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
-    </div>
 
-    <div class="container">
-      <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+    <body onload="modifyNavbar_members()">
+        <header id="navbar">
 
-      <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+            <script>
+            function modifyNavbar_members(){
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        if (this.responseText == "fail") {/*Do nothing*/}
+                        else {
+                            document.getElementById('memberGreeting').innerHTML = "<a><em style=\"text-transform:none\">Hi, <b style=\"text-transform:lowercase\">" +this.responseText+ "</b></em></a>";
+                            document.getElementById('memberDropdown').innerHTML = "<li><a href=\"control.php\"><span class=\"glyphicon glyphicon-user\"></span> Elevator Control UI</a></li> \
+                            <li><a href=\"php/logout.php\"><span class=\"glyphicon glyphicon-log-in\"></span> Log Out</a></li>"
+                        }
+                    }
+                };
+                xmlhttp.open("GET","php/checkSessionStatus.php",true);
+                xmlhttp.send();
+            }
+            function showUser(str) {
+                if (str == "") {
+                    document.getElementById("txtHint").innerHTML = "hiiii";
+                    return;
+                } else {
+                    if (window.XMLHttpRequest) {
+                        // code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp = new XMLHttpRequest();
+                    } else {
+                        // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("usernamefeedback").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET","php/getuser.php?u="+str,true);
+                    xmlhttp.send();
+                }
+            }
 
-      <button type="submit">Login</button>
-      <input type="checkbox" checked="checked"> Remember me
-    </div>
+            function checkPassword() {
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("passwordfeedback").innerHTML = this.responseText;
+                    }
+                };
+                var u = document.getElementById('enterUsername').value;
+                var p = document.getElementById('enterPassword').value;
+                xmlhttp.open("GET","php/checkPassword.php?u="+u+"&p="+p,true);
+                xmlhttp.send();
+            }
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
-</div>
+            function checkCredentials(){
+              if (window.XMLHttpRequest) {
+                  // code for IE7+, Firefox, Chrome, Opera, Safari
+                  xmlhttp = new XMLHttpRequest();
+              } else {
+                  // code for IE6, IE5
+                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              xmlhttp.onreadystatechange = function() {
+                  if (this.readyState == 4 && this.status == 200) {
+                      if (this.responseText == "fail") {/*Do nothing*/}
+                      else if (this.responseText == "ok") {
+                          modifyNavbar_members();
+                          document.getElementById('loginform').innerHTML = "<div class=\"container-fluid text-center bg-1\"><b>Login successful!</b></div>\
+                            </br><ul><li><a href=\"php/members.php\">Click here</a> to go to the elevator control panel</li>\
+                                <li><a href=\"index.php\">Click here</a> to return to the homepage</li></ul>";
+                      }
+                  }
+              };
+              var u = document.getElementById('enterUsername').value;
+              var p = document.getElementById('enterPassword').value;
+              xmlhttp.open("GET","php/checkLogin.php?u="+u+"&p="+p,true);
+              xmlhttp.send();
+            }
+            </script>
+
+
+            <div class="container-fluid collapse" id="navbarToggleExternalContent">
+                <nav id="myNavbar" class="navbar navbar-default" role="navigation">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="container-fluid">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="project-plan.html">Project Plan</a></li>
+                                <li><a href="project-details.html">Project Details</a></li>
+                                <li class="dropdown">
+                                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
+                                  <span class="caret"></span></a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="james-logbook.html">James' Logbook</a></li>
+                                    <li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
+                                    <li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
+                                  </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li id="memberGreeting"><a style="text-transform:none">Not signed in</a></li>
+                                <li>
+                                    <a id="clock">&nbsp;</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><b class="glyphicon glyphicon-tasks"></b></a>
+                                    <ul class="dropdown-menu" id="memberDropdown">
+                                        <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                        <!-- <li class="divider"></li>
+                                        <li><a href="#">Settings</a></li> -->
+                                    </ul>
+                                </li>
+								<li class="navbar-toggler"><img src="images/logo2.png" style="padding-top: 13px; padding-left: 10px; height:45px; opacity:0.8;"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+          <nav id="myNavbar" id="specialNav" class="navbar-inverse">
+              <div class="container-fluid">
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                          <li id="toggleNav"><a onclick='padMenu()' class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
+                             <b class="	glyphicon glyphicon-triangle-top"> menu</b></a></li>
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+        </div>
+          </header>
+
+          <div class="container-fluid bg-1" id="loginform">
+                  <fieldset>
+                      <legend class="form-title text-center">Login</legend>
+                      <label>Username:</label> </br>
+                      <input id="enterUsername" type="text" name="username" required autofocus onblur="showUser(this.value)"/> </br>
+                      <p><div id="usernamefeedback"></div></p>
+
+                      <label>Password:</label></br>
+                      <input id="enterPassword" type="password" name="password" required onblur="checkPassword()"/>
+                      <p><div id="passwordfeedback"></div></p>
+                  </fieldset>
+
+                  <div class="clearfix">
+                    <button id="submitbtn" type="submit"  class="submitbtn button" style="vertical-align:middle" onclick="checkCredentials()"><span onclick="checkCredentials()">Login</span></button>
+                  </div>
+          </div>
+
+
+
+      </body>
+
+
+
+
+
 </html>

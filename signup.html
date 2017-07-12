@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Midterm Exam: Signup Page</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index_style.css" />
+        <link href="css/signup.css" type="text/css" rel="stylesheet" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+
+    <body>
+        <header id="navbar">
+            <div class="container-fluid collapse" id="navbarToggleExternalContent">
+                <nav id="myNavbar" class="navbar navbar-default" role="navigation">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="container-fluid">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="project-plan.html">Project Plan</a></li>
+                                <li><a href="project-details.html">Project Details</a></li>
+                                <li class="dropdown">
+                                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
+                                  <span class="caret"></span></a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="james-logbook.html">James' Logbook</a></li>
+                                    <li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
+                                    <li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
+                                  </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a id="clock">&nbsp;</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><b class="glyphicon glyphicon-tasks"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                        <!-- <li class="divider"></li>
+                                        <li><a href="#">Settings</a></li> -->
+                                    </ul>
+                                </li>
+                                <li class="navbar-toggler"><img src="images/logo2.png" style="padding-top: 13px; padding-left: 10px; height:45px; opacity:0.8;"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+          <nav id="myNavbar" id="specialNav" class="navbar-inverse">
+              <div class="container-fluid">
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                          <li id="toggleNav"><a onclick='padMenu()' class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
+                             <b class="	glyphicon glyphicon-triangle-top"> menu</b></a></li>
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+        </div>
+          </header>
+
+          <div class="container-fluid bg-1">
+              <form action="php/addcredentials.php" method="POST" id="signup">
+                  <fieldset>
+                      <legend class="form-title text-center">Sign up</legend>
+                      <label>Username:</label> </br>
+                      <input id="enterUsername" type="text" name="username" required autofocus/> </br>
+                      <p><a class="not-active" id="usernamefeedback"></a></p>
+
+                      <label>Password:</label></br>
+                      <input id="enterPassword" type="password" name="password" required/>
+                      <p><a class="not-active" id="passwordfeedback"></a></p>
+                  </fieldset>
+
+                  <div class="clearfix">
+                    <button id="submitbtn" type="submit"  class="submitbtn button" style="vertical-align:middle"><span>Submit</span></button>
+                  </div>
+              </form>
+              <script src="js/signup.js"></script>
+          </div>
+
+          <div class="container-fluid bg-4 text-center">
+              <p><em>Username and password must be at least 7 characters </em></p>
+
+          </div>
+
+      </body>
+
+
+
+
+
+</html>
