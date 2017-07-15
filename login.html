@@ -6,104 +6,15 @@
         <link rel="stylesheet" type="text/css" href="css/index_style.css" />
         <link href="css/signup.css" type="text/css" rel="stylesheet" />
 
+        <script src="js/login.js"></script>
+        <script src="js/clock.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
-
-    <body onload="modifyNavbar_members()">
+    <!-- setInterval('updateClock()', 1000) MOVED TO modifyNavbar_members() -->
+    <body onload="modifyNavbar_members(); updateClock();">
         <header id="navbar">
-
-            <script>
-            function modifyNavbar_members(){
-                if (window.XMLHttpRequest) {
-                    // code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                } else {
-                    // code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        if (this.responseText == "fail") {/*Do nothing*/}
-                        else {
-                            document.getElementById('memberGreeting').innerHTML = "<a><em style=\"text-transform:none\">Hi, <b style=\"text-transform:lowercase\">" +this.responseText+ "</b></em></a>";
-                            document.getElementById('memberDropdown').innerHTML = "<li><a href=\"control.php\"><span class=\"glyphicon glyphicon-user\"></span> Elevator Control UI</a></li> \
-                            <li><a href=\"php/logout.php\"><span class=\"glyphicon glyphicon-log-in\"></span> Log Out</a></li>"
-                        }
-                    }
-                };
-                xmlhttp.open("GET","php/checkSessionStatus.php",true);
-                xmlhttp.send();
-            }
-            function showUser(str) {
-                if (str == "") {
-                    document.getElementById("txtHint").innerHTML = "hiiii";
-                    return;
-                } else {
-                    if (window.XMLHttpRequest) {
-                        // code for IE7+, Firefox, Chrome, Opera, Safari
-                        xmlhttp = new XMLHttpRequest();
-                    } else {
-                        // code for IE6, IE5
-                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                    }
-                    xmlhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("usernamefeedback").innerHTML = this.responseText;
-                        }
-                    };
-                    xmlhttp.open("GET","php/getuser.php?u="+str,true);
-                    xmlhttp.send();
-                }
-            }
-
-            function checkPassword() {
-                if (window.XMLHttpRequest) {
-                    // code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                } else {
-                    // code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("passwordfeedback").innerHTML = this.responseText;
-                    }
-                };
-                var u = document.getElementById('enterUsername').value;
-                var p = document.getElementById('enterPassword').value;
-                xmlhttp.open("GET","php/checkPassword.php?u="+u+"&p="+p,true);
-                xmlhttp.send();
-            }
-
-            function checkCredentials(){
-              if (window.XMLHttpRequest) {
-                  // code for IE7+, Firefox, Chrome, Opera, Safari
-                  xmlhttp = new XMLHttpRequest();
-              } else {
-                  // code for IE6, IE5
-                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-              }
-              xmlhttp.onreadystatechange = function() {
-                  if (this.readyState == 4 && this.status == 200) {
-                      if (this.responseText == "fail") {/*Do nothing*/}
-                      else if (this.responseText == "ok") {
-                          modifyNavbar_members();
-                          document.getElementById('loginform').innerHTML = "<div class=\"container-fluid text-center bg-1\"><b>Login successful!</b></div>\
-                            </br><ul><li><a href=\"php/members.php\">Click here</a> to go to the elevator control panel</li>\
-                                <li><a href=\"index.php\">Click here</a> to return to the homepage</li></ul>";
-                      }
-                  }
-              };
-              var u = document.getElementById('enterUsername').value;
-              var p = document.getElementById('enterPassword').value;
-              xmlhttp.open("GET","php/checkLogin.php?u="+u+"&p="+p,true);
-              xmlhttp.send();
-            }
-            </script>
-
-
             <div class="container-fluid collapse" id="navbarToggleExternalContent">
                 <nav id="myNavbar" class="navbar navbar-default" role="navigation">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -118,22 +29,22 @@
                                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
                                   <span class="caret"></span></a>
                                   <ul class="dropdown-menu">
-                                    <li><a href="james-logbook.html">James' Logbook</a></li>
-                                    <li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
-                                    <li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
+                                    <li><a href="james-logbook.html"> &nbsp; James' Logbook</a></li>
+                                    <li><a href="kevin-logbook.html"> &nbsp; Kevin's Logbook</a></li>
+                                    <li><a href="ovi-logbook.html"> &nbsp; Ovi's Logbook</a></li>
                                   </ul>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li id="memberGreeting"><a style="text-transform:none">Not signed in</a></li>
-                                <li>
+                                <li id="memberGreeting" class="nohover"><a style="text-transform:none">Not signed in</a></li>
+                                <li class="nohover">
                                     <a id="clock">&nbsp;</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><b class="glyphicon glyphicon-tasks"></b></a>
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><b class="glyphicon glyphicon-menu-hamburger"></b></a>
                                     <ul class="dropdown-menu" id="memberDropdown">
-                                        <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Login</a></li>
+                                        <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> &nbsp; Sign Up</a></li>
                                         <!-- <li class="divider"></li>
                                         <li><a href="#">Settings</a></li> -->
                                     </ul>
@@ -162,7 +73,7 @@
                   <fieldset>
                       <legend class="form-title text-center">Login</legend>
                       <label>Username:</label> </br>
-                      <input id="enterUsername" type="text" name="username" required autofocus onblur="showUser(this.value)"/> </br>
+                      <input id="enterUsername" type="text" name="username" required autofocus onblur="checkUser(this.value)"/> </br>
                       <p><div id="usernamefeedback"></div></p>
 
                       <label>Password:</label></br>
@@ -173,13 +84,13 @@
                   <div class="clearfix">
                     <button id="submitbtn" type="submit"  class="submitbtn button" style="vertical-align:middle" onclick="checkCredentials()"><span onclick="checkCredentials()">Login</span></button>
                   </div>
+
+                  <div class="container-fluid text-center">
+                      <p><em>No account? </em> <a style="" href="signup.html">Sign up.</a> </em></p>
+                  </div>
           </div>
 
-
-
       </body>
-
-
 
 
 

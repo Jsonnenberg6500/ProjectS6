@@ -24,7 +24,7 @@
 
   <script src="js/clock.js"></script>
   <script src="js/signup.js"></script>
-  <script scr="js/index.js"></script>
+  <script scr="js/navbarEditForMembers.js"></script>
   <script type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -32,111 +32,60 @@
 
 </head>
 
-<body onload="updateClock(); setInterval('updateClock()', 1000)">
-    <div class="container-fluid collapse" id="navbarToggleExternalContent">
-        <nav id="myNavbar" class="navbar navbar-default" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="container-fluid">
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="project-plan.html">Project Plan</a></li>
-                        <li><a href="project-details.html">Project Details</a></li>
-                        <li class="dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
-                          <span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                            <li><a href="james-logbook.html">James' Logbook</a></li>
-                            <li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
-                            <li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
-                          </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a id="clock">&nbsp;</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><b class="glyphicon glyphicon-tasks"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                                <!-- <li class="divider"></li>
-                                <li><a href="#">Settings</a></li> -->
-                            </ul>
-                        </li>
-                        <li class="navbar-toggler"><img src="images/logo2.png" style="padding-top: 13px; padding-left: 10px; height:45px; opacity:0.8;"></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-  <nav id="myNavbar" id="specialNav" class="navbar-inverse">
-      <div class="container-fluid">
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-
-
-                  <li id="toggleNav"><a onclick='padMenu()' class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
-                     <b class="	glyphicon glyphicon-triangle-bottom"> menu</b></a></li>
-              </ul>
-          </div>
-      </div>
-  </nav>
-</div>
-<script>
-function padMenu() {
-  $("nav").toggleClass("open");
-});
-</script>
-
-<!-- Navbar -->
+<body onload="modifyNavbar_members(); updateClock();">
     <header id="navbar">
-
-
-
-<!--
-
-        <nav class="navbar navbar-inverse navbar-fixed-top bg-faded">
-          <div class="container-fluid">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="project-plan.html">Project Plan</a></li>
-              <li><a href="project-details.html">Project Details</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="james-logbook.html">James' Logbook</a></li>
-                  <li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
-                  <li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a id="clock">&nbsp;</a>
-                </li>
-                <li><button href='#' class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button></li>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a onclick="document.getElementById('id02').style.display='block'"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-                        <a onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        <div class="container-fluid collapse" id="navbarToggleExternalContent">
+            <nav id="myNavbar" class="navbar navbar-default" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="container-fluid">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="index.html">Home</a></li>
+                            <li><a href="project-plan.html">Project Plan</a></li>
+                            <li><a href="project-details.html">Project Details</a></li>
+                            <li class="dropdown">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
+                              <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="james-logbook.html"> &nbsp; James' Logbook</a></li>
+                                <li><a href="kevin-logbook.html"> &nbsp; Kevin's Logbook</a></li>
+                                <li><a href="ovi-logbook.html"> &nbsp; Ovi's Logbook</a></li>
+                              </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li id="memberGreeting" class="nohover"><a style="text-transform:none">Not signed in</a></li>
+                            <li class="nohover">
+                                <a id="clock">&nbsp;</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle"><b class="glyphicon glyphicon-menu-hamburger"></b></a>
+                                <ul class="dropdown-menu" id="memberDropdown">
+                                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Login</a></li>
+                                    <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> &nbsp; Sign Up</a></li>
+                                    <!-- <li class="divider"></li>
+                                    <li><a href="#">Settings</a></li> -->
+                                </ul>
+                            </li>
+                            <li class="navbar-toggler"><img src="images/logo2.png" style="padding-top: 13px; padding-left: 10px; height:45px; opacity:0.8;"></li>
+                        </ul>
                     </div>
-                  </div>
-
-                        <li>
-
-            </ul>
+                </div>
+            </nav>
+        </div>
+      <nav id="myNavbar" id="specialNav" class="navbar-inverse">
+          <div class="container-fluid">
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                      <li id="toggleNav"><a onclick='padMenu()' class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
+                         <b class="	glyphicon glyphicon-triangle-top"> menu</b></a></li>
+                  </ul>
+              </div>
           </div>
-        </nav>
-
-    -->
-
+      </nav>
+    </div>
       </header>
 
 <!-- First Container -->
