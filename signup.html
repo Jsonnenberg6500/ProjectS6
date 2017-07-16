@@ -6,12 +6,15 @@
         <link rel="stylesheet" type="text/css" href="css/index_style.css" />
         <link href="css/signup.css" type="text/css" rel="stylesheet" />
 
+        <script src="js/signup.js"></script>
+        <script src="js/clock.js"></script>
+    	<script src="js/navbarEditForMember.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
 
-    <body>
+    <body onload="setInterval('updateClock()', 1000); modifyNavbar_members();">
         <header id="navbar">
             <div class="container-fluid collapse" id="navbarToggleExternalContent">
                 <nav id="myNavbar" class="navbar navbar-default" role="navigation">
@@ -27,21 +30,22 @@
                                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
                                   <span class="caret"></span></a>
                                   <ul class="dropdown-menu">
-                                    <li><a href="james-logbook.html">James' Logbook</a></li>
-                                    <li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
-                                    <li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
+                                    <li><a href="james-logbook.html"> &nbsp; James' Logbook</a></li>
+                                    <li><a href="kevin-logbook.html"> &nbsp; Kevin's Logbook</a></li>
+                                    <li><a href="ovi-logbook.html"> &nbsp; Ovi's Logbook</a></li>
                                   </ul>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li>
+                                <li id="memberGreeting" class="nohover"><a style="text-transform:none">Not signed in</a></li>
+                                <li class="nohover">
                                     <a id="clock">&nbsp;</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><b class="glyphicon glyphicon-tasks"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><b class="glyphicon glyphicon-menu-hamburger"></b></a>
+                                    <ul class="dropdown-menu" id="memberDropdown">
+                                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Login</a></li>
+                                        <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> &nbsp; Sign Up</a></li>
                                         <!-- <li class="divider"></li>
                                         <li><a href="#">Settings</a></li> -->
                                     </ul>
@@ -60,34 +64,32 @@
                           <li id="toggleNav"><a onclick='padMenu()' class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
                              <b class="	glyphicon glyphicon-triangle-top"> menu</b></a></li>
                       </ul>
-                  </div>
-              </div>
-          </nav>
-        </div>
-          </header>
+    	              </div>
+    	          </div>
+    	      </nav>
+    	    </div>
+    	</header>
 
-          <div class="container-fluid bg-1">
-              <form action="php/addcredentials.php" method="POST" id="signup">
+          <div class="container-fluid bg-1" id="signupform">
                   <fieldset>
                       <legend class="form-title text-center">Sign up</legend>
-                      <label>Username:</label> </br>
-                      <input id="enterUsername" type="text" name="username" required autofocus/> </br>
-                      <p><a class="not-active" id="usernamefeedback"></a></p>
+                      <label style="position: inline;">Username:</label> </br>
+                      <input id="enterUsername" type="text" name="username" onblur="checkUser(this.value)" required autofocus/> </br>
+                      <p><div class="not-active text-left" id="usernamefeedback"></div></p>
 
-                      <label>Password:</label></br>
-                      <input id="enterPassword" type="password" name="password" required/>
-                      <p><a class="not-active" id="passwordfeedback"></a></p>
+                      <label style="position: inline;">Password:</label></br>
+                      <input id="enterPassword" type="password" name="password" onblur="checkPassword()" required/>
+                      <p><div class="not-active text-left" id="passwordfeedback"></div></p>
                   </fieldset>
 
                   <div class="clearfix">
-                    <button id="submitbtn" type="submit"  class="submitbtn button" style="vertical-align:middle"><span>Submit</span></button>
+                    <button id="submitbtn" type="submit"  class="submitbtn button" style="vertical-align:middle"><span onclick="submitCredentials()">Submit</span></button>
                   </div>
-              </form>
               <script src="js/signup.js"></script>
           </div>
 
-          <div class="container-fluid bg-4 text-center">
-              <p><em>Username and password must be at least 7 characters </em></p>
+          <div class="container-fluid bg-4 text-center" id="lengthWarning">
+              <p><em>Username and password must be at least 5 characters </em></p>
 
           </div>
 

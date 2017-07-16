@@ -7,54 +7,83 @@
 		<meta name="robots" content="noindex nofollow" />  <!-- do not want page or any of its links to be indexed -->
 		<meta http-equiv="author" content="Michael Galle" />
 		<meta http-equiv="pragma" content="no-cache" /> <!-- want browser to reload this page every time -->
-        
-        
+
+
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/index_style.css" />
-		<link href="css/project_details_style.css" type="text/css" rel="stylesheet" />
-              
+		<link href="css/index_style.css" type="text/css" rel="stylesheet" />
+
+		<script src="js/clock.js"></script>
+		<script src="js/navbarEditForMember.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        
+
 	</head>
-	<body>
+	<body onload="setInterval('updateClock()', 1000); modifyNavbar_members();">
+	    <header id="navbar">
+	        <div class="container-fluid collapse" id="navbarToggleExternalContent">
+	            <nav id="myNavbar" class="navbar navbar-default" role="navigation">
+	                <!-- Brand and toggle get grouped for better mobile display -->
+	                <div class="container-fluid">
+	                    <!-- Collect the nav links, forms, and other content for toggling -->
+	                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                        <ul class="nav navbar-nav">
+	                            <li><a href="index.html">Home</a></li>
+	                            <li><a href="project-plan.html">Project Plan</a></li>
+	                            <li class="active"><a href="project-details.html">Project Details</a></li>
+	                            <li class="dropdown">
+	                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
+	                              <span class="caret"></span></a>
+	                              <ul class="dropdown-menu">
+	                                <li><a href="james-logbook.html"> &nbsp; James' Logbook</a></li>
+	                                <li><a href="kevin-logbook.html"> &nbsp; Kevin's Logbook</a></li>
+	                                <li><a href="ovi-logbook.html"> &nbsp; Ovi's Logbook</a></li>
+	                              </ul>
+	                            </li>
+	                        </ul>
+	                        <ul class="nav navbar-nav navbar-right">
+	                            <li id="memberGreeting" class="nohover"><a style="text-transform:none">Not signed in</a></li>
+	                            <li class="nohover">
+	                                <a id="clock">&nbsp;</a>
+	                            </li>
+	                            <li class="dropdown">
+	                                <a href="#" data-toggle="dropdown" class="dropdown-toggle"><b class="glyphicon glyphicon-menu-hamburger"></b></a>
+	                                <ul class="dropdown-menu" id="memberDropdown">
+	                                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Login</a></li>
+	                                    <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> &nbsp; Sign Up</a></li>
+	                                    <!-- <li class="divider"></li>
+	                                    <li><a href="#">Settings</a></li> -->
+	                                </ul>
+	                            </li>
+	                            <li class="navbar-toggler"><img src="images/logo2.png" style="padding-top: 13px; padding-left: 10px; height:45px; opacity:0.8;"></li>
+	                        </ul>
+	                    </div>
+	                </div>
+	            </nav>
+	        </div>
+	      <nav id="myNavbar" id="specialNav" class="navbar-inverse">
+	          <div class="container-fluid">
+	              <!-- Collect the nav links, forms, and other content for toggling -->
+	              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                  <ul class="nav navbar-nav">
+	                      <li id="toggleNav"><a onclick='padMenu()' class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
+	                         <b class="	glyphicon glyphicon-triangle-top"> menu</b></a></li>
+	                  </ul>
+		              </div>
+		          </div>
+		      </nav>
+		    </div>
+		</header>
+	</br>
 
-        <header id="navbar">
-        <nav class="navbar navbar-inverse">
-
-          <div class="container-fluid">
-            <div class="navbar-header logodiv">
-              <a class="navbar-brand" href="#"><img id="logo" src="/images/logo.png"/></a>
-            </div>
-            <ul class="nav navbar-nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="project-plan.html">Project Plan</a></li>
-              <li class="active"><a href="project-details.html">Project Details</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="james-logbook.html">James' Logbook</a></li>
-                  <li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
-                  <li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-            <li><a onclick="document.getElementById('id02').style.display='block'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul>
-          </div>
-        </nav>
-      </header>
-        
+		<div class="container-fluid bg-2 text-center">
         <div class="container-fluid bg-1 text-center">
         <h1 class="margin">Project Details</h1> </div>
 
-		<div id="enclose">
-				
+		<div id="enclose" class="text-left">
+
 				<h2>Project Description</h2>
 				<p>The overall project plan (to be completed in <span class="mkunderlined">3 phases</span>) is to build and control an elevator, leveraging the use of a CAN bus communications environment, coupled with networked systems to create a means of tracking the elevator’s operational/diagnostics data. The elevator car’s position and status must also be viewable to computers over the Internet.  See the system diagram, below.
 				The <span class="mkbold">final project demonstration</span> begins with the elevator car at an initial position. As buttons are pressed at each floor, the system will direct the car to service the requests in a safe and controlled manner, subject to requirements for appropriate and predictable speed and acceleration. The system will use a distance sensor to track the car position at all times, determining the distance from the bottom of the elevator shaft, and thus determine the next floor number.  Buttons will be handled over the <span id="can">CAN bus</span>.
@@ -77,7 +106,7 @@
 				The elevator <span class="mkbold">motor</span> will interface with the controller via servo electronics.</p>
 
 				<figure>
-					<img src="images/project-block-diagram.jpg" />   <!--   -->
+					<img style="width: 80%" src="images/project-block-diagram.jpg" />   <!--   -->
 					<figcaption>Figure-1 <br />(Note: Above figure depicts an approximate schematic of the system. Actual implementation may be different from this.)</figcaption>
 				</figure>
 
@@ -100,7 +129,7 @@
 				</ol>
 
 				<figure>
-					<img src="images/project-block-communications.jpg" />   <!--   -->
+					<img style="width: 80%" src="images/project-block-communications.jpg" />   <!--   -->
 					<figcaption>Figure-2 <br />(Note: Above figure depicts an approximate schematic of the system. Actual implementation may be different from this.)</figcaption>
 				</figure>
 
@@ -135,6 +164,7 @@
 					<tbody></tbody>
 					<tfoot></tfoot>
 				</table>
+				</div>
 				<br />
 				<p>Copyright &copy 2017 Michael Galle</p>
 

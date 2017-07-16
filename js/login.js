@@ -12,10 +12,14 @@ function checkUser(str) {
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("usernamefeedback").innerHTML = this.responseText;
+                if (this.responseText == "exists") {
+                    document.getElementById("usernamefeedback").innerHTML = "<div style=\"color: green; transition: 0.3s;\" class=\"container-fluid\"><b class=\"glyphicon glyphicon-ok\"></b></div>";
+                } else if (this.responseText == "vacant") {
+                    document.getElementById("usernamefeedback").innerHTML = "<div class=\"container-fluid\"><em><b>Error:</b> This username is not registered. <a href=\"signup.html\">Sign up?</a></em></div>";
+                }
             }
         };
-        xmlhttp.open("GET","php/getuser.php?u="+str,true);
+        xmlhttp.open("GET","php/checkUser.php?u="+str,true);
         xmlhttp.send();
     }
 }
