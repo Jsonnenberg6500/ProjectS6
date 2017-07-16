@@ -1,0 +1,97 @@
+legend {
+    padding-left: 5px;
+    padding-top: 7px; padding-bottom: 7px;
+    color: white;
+    border-radius: 8px;
+    background-image: url("../images/bg.jpg");
+    font-size: 16px;
+}
+
+.button {
+  display: inline-block;
+  background: rgba(0,0,0,0.5);
+  float: right;
+  border-radius: 8px;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  width: 100x;
+  height: 40px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.not-active {
+   pointer-events: none;
+   cursor: default;
+   color: gray;
+   text-align: center;
+}
+
+body {
+    /* background-color: gray; */
+    background-image: url("../images/bg.jpg");
+}
+
+.bg-1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-color: black;
+    /* outline: 1px solid black; */
+    border-radius: 8px;
+    width: 50%;
+    max-width: 400px;
+    background:rgba(255,255,255,0.7);
+}
+
+.bg-4 {
+    padding-top: 10px;
+    width: 50%;
+    max-width: 500px;
+    color: white;
+    text-align: center;
+}
+
+
+
+input {
+    width: 100%;
+}
+
+.clearfix {
+    padding-top: 10px;
+}
+
+label {
+    padding-top: 10px;
+}

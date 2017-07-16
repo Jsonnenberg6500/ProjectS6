@@ -2,6 +2,7 @@ var acc = document.getElementsByClassName("accordion");
 var i;
 
 window.onload = function() {
+    modifyNavbar_members();
     for (i = 0; i < acc.length; i++) {
         acc[i].onclick = function(){
             /* Toggle between adding and removing the "active" class,

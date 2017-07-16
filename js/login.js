@@ -1,42 +1,96 @@
-//for initial login page
-var elUsername = document.getElementById('username');
-var elPassword = document.getElementById('password');
-var elMsg = document.getElementById('usernamefeedback');
-var elMsg2 = document.getElementById('passwordfeedback');
-
-
-
-//****************** for initial login page *****************************
-
-function checkUserName(){
-    if(elUsername.value.length < 7){
-        elMsg.innerHTML = '<p>Username must be 7 characters or more </p>';
-        
+function checkUser(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "hiiii";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                if (this.responseText == "exists") {
+                    document.getElementById("usernamefeedback").innerHTML = "<div style=\"color: green; transition: 0.3s;\" class=\"container-fluid\"><b class=\"glyphicon glyphicon-ok\"></b></div>";
+                } else if (this.responseText == "vacant") {
+                    document.getElementById("usernamefeedback").innerHTML = "<div class=\"container-fluid\"><em><b>Error:</b> This username is not registered. <a href=\"signup.html\">Sign up?</a></em></div>";
+                }
+            }
+        };
+        xmlhttp.open("GET","php/checkUser.php?u="+str,true);
+        xmlhttp.send();
     }
-    else
-    {  
-        elMsg.innerHTML = '';    
-    }
-	
-      
 }
 
-
-function checkPassword(){
-
-	if(elPassword.value.length < 7){
-        elMsg2.innerHTML = '<p>Password must be 7 characters or more </p>';
-        
+function checkPassword() {
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    else
-    {  
-        elMsg2.innerHTML = '';    
-    }
-    
-    
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("passwordfeedback").innerHTML = this.responseText;
+        }
+    };
+    var u = document.getElementById('enterUsername').value;
+    var p = document.getElementById('enterPassword').value;
+    xmlhttp.open("GET","php/checkPassword.php?u="+u+"&p="+p,true);
+    xmlhttp.send();
 }
 
-elUsername.addEventListener('blur', checkUserName, false);
-elPassword.addEventListener('blur', checkPassword, false);
+function checkCredentials(){
+  if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+  } else {
+      // code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          if (this.responseText == "fail") {/*Do nothing*/}
+          else if (this.responseText == "ok") {
+              modifyNavbar_members();
+              document.getElementById('loginform').innerHTML = "<div class=\"container-fluid text-center bg-1\"><b>Login successful!</b></div>\
+                </br><ul><li><a href=\"php/members.php\">Click here</a> to go to the elevator control panel</li>\
+                    <li><a href=\"index.php\">Click here</a> to return to the homepage</li></ul>";
+          }
+      }
+  };
+  var u = document.getElementById('enterUsername').value;
+  var p = document.getElementById('enterPassword').value;
+  xmlhttp.open("GET","php/checkLogin.php?u="+u+"&p="+p,true);
+  xmlhttp.send();
+}
 
+function modifyNavbar_members(){
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "fail") {/*Do nothing*/}
+            else {
+                document.getElementById('memberGreeting').innerHTML = "<a><em style=\"text-transform:none\">Hello, <b style=\"text-transform:lowercase\">" +this.responseText+ "</b></em>!</a>";
+                document.getElementById('memberDropdown').innerHTML = "<li><a href=\"control.php\"><span class=\"glyphicon glyphicon-modal-window\"></span> &nbsp; Elevator UI</a></li> \
+                <li><a href=\"php/logout.php\"><span class=\"glyphicon glyphicon-log-out\"></span>  &nbsp; Log Out</a></li>";
+                document.getElementById('loginform').innerHTML = "<div class=\"container-fluid text-center bg-1\"><b>Login successful!</b></div>\
+                  </br><ul><li><a href=\"php/members.php\">Click here</a> to go to the elevator control panel</li>\
+                      <li><a href=\"index.php\">Click here</a> to return to the homepage</li></ul>";
+            }
+        }
+    };
+    xmlhttp.open("GET","php/checkSessionStatus.php",true);
+    xmlhttp.send();
 
+    setInterval('updateClock()', 1000);
+}

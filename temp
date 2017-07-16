@@ -1,0 +1,277 @@
+
+        <nav id="myNavbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="container">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="project-plan.html">Project Plan</a></li>
+                        <li><a href="project-details.html">Project Details</a></li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logbooks
+                          <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="james-logbook.html">James' Logbook</a></li>
+                            <li><a href="kevin-logbook.html">Kevin's Logbook</a></li>
+                            <li><a href="ovi-logbook.html">Ovi's Logbook</a></li>
+                          </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a id="clock">&nbsp;</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><b class="glyphicon glyphicon-tasks"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a onclick="document.getElementById('id02').style.display='block'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                <li><a onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                <!-- <li class="divider"></li>
+                                <li><a href="#">Settings</a></li> -->
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+
+
+        /* Older browsers: Display HTML5 elements as block */
+        header, section, footer, aside, nav, article, figure {
+            display:block;
+        }
+
+        iframe {
+            width: 80%;
+        }
+
+        nav.navbar.open {
+          margin-bottom: 120px;
+        }
+
+        .container {
+            width: 99% !important;
+        }
+
+        .navbar a {
+            color: white !important;
+        }
+
+        legend {
+            padding-left: 5px;
+            padding-top: 1px;
+            padding-bottom: 10px;
+            width: 100%;
+            border-radius: 10px;
+            font-size:10px;
+            background:rgba(255,255,255,0.3);
+        }
+
+        .nav .active {
+            background:rgba(255,255,255,0.2);
+            color: red !important;
+        }
+
+        .nav .dropdown-menu {
+            color: black !important;
+            background-color: white !important;
+        }
+        .nav .dropdown-menu a {
+            color: black !important;
+        }
+        .nav .dropdown-menu .active {
+            background:rgba(255,255,255,0.1);
+        }
+        .nav .dropdown-toggle {
+            background-color: transparent;
+        }
+
+        .dropdown-toggle:active, .open .dropdown-toggle {
+                background:rgba(255,255,255,0.1) !important;
+            }
+
+        .navbar {
+            background-color: transparent;
+        }
+
+        .navbar li { color: #000 !important }
+
+        #title {
+             background-image: url("../images/bg.jpg");
+            opacity: 0.8;
+            /*background:rgba(0,0,0,0.5); */
+            color: white;
+        }
+
+        .margin {
+            margin-bottom: 10px;
+            letter-spacing: 10px;
+            color: white;
+            font-size: 10;
+        }
+
+        /* Style the buttons that are used to open and close the accordion panel */
+        button.accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding-left: 20px;
+            width: 100%;
+            height:50px;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+        }
+
+        #logo {
+            max-height: 170%;
+            box-shadow: none;
+            border: none;
+        }
+
+        button.accordion:after {
+            content: '\02795'; /* Unicode character for "plus" sign (+) */
+            font-size: 20px;
+            padding-right: 15px;
+            color: #777;
+            float: right;
+            margin-left: 5px;
+        }
+
+        #SPECIAL {
+            border-bottom: 0px;
+        }
+
+        button.accordion.active:after {
+            content: "\2796"; /* Unicode character for "minus" sign (-) */
+        }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        button.accordion.active, button.accordion:hover {
+            background-color: #ddd;
+        }
+
+        .nav .active a { background:transparent!important }
+
+        .dropdownlogbook {
+            font-size: 15px;
+            background-color: transparent;
+            color: white;
+        }
+        /* Style the accordion panel. Note: hidden by default */
+        div.panel {
+            padding: 0 0px;
+            border: none;
+            background-color: white;
+            display: none;
+        }
+
+        selfie {
+            align-content: center;
+        }
+
+        #teamphoto {
+          float: left;
+        }
+
+        #sidebar{
+             border: clear black 2px;
+        }
+
+
+        body {
+              font: 20px Montserrat, sans-serif;
+              padding-top: 65px;
+              line-height: 1.8;
+              background-image: url("../images/bg.jpg");
+              background-attachment: fixed;
+              background-repeat: no-repeat;
+          }
+          p {font-size: 16px;}
+
+          .bg-1 {
+              padding-top: 10px;
+              padding-bottom: 10px;
+              border-color: black;
+              /* outline: 1px solid black; */
+              border-radius: 15px;
+              width: 85%;
+              max-width: 2000px;
+              background:rgba(255,255,255,0.7);
+          }
+          .bg-3 {
+              background:rgba(255,255,255,0.5);
+              color: #ffffff;
+          }
+          .bg-2 {
+              background:rgba(255,255,255,0.7);
+              color: #555555;
+              padding-top: 10px;
+              padding-bottom:50px;
+          }
+          .bg-4 {
+              background-color: #2f2f2f; /* Black Gray */
+              color: #fff;
+          }
+        .bg-5 {
+                background-color: white; /* Black Gray */
+                border: 1px 1px 1px 1px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                font-size: 15px;
+          }
+          .navbar {
+              padding-top: 0px;
+              padding-bottom: 0px;
+              border: 0;
+              border-radius: 0;
+              margin-bottom: 0;
+              font-size: 14px;
+              letter-spacing: 0px;
+          }
+              navbar {
+                  position:fixed;
+              }
+          .navbar-nav  li a:hover {
+              color: white !important;
+              background:rgba(255,255,255,0.1) !important;
+          }
+
+          .navbar-nav li: a:active {
+              color: red;
+          }
+          .navbar-nav li {
+              color: white !important;
+          }
+          .navbar-default {
+              background-color:transparent !important;
+              border-color:transparent;
+              background-image:none;
+              box-shadow:none;
+              color: white !important;
+         }
+              .linkedin-links {
+                  color: darkslategray;
+              }
+              .linkedin-links:hover {
+                  color:#1abc9c !important;
+                    text-decoration: none;
+              }
+              .linkedin-links:visited {
+                  color: darkslategray;
+                  text-decoration: none;
+              }
+              .hi {
+                  font-size: 25px;
+              }
+              .this {
+                  height:10px !important;
+              }
+              .embedimg {
+                   padding:1px;
+                   border:2px solid #021a40;
+                   background-color:#1abc9c;
+                   resize: both;
+            }

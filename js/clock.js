@@ -10,7 +10,7 @@ function updateClock()
      var currentYear = currentTime.getFullYear();
 
      currentMonth++;
-     
+
      currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
      currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
 
@@ -21,9 +21,7 @@ function updateClock()
      var timeString = currentHour + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
      var dateString = currentDay + "/" + currentMonth + "/" + currentYear;
 
-     document.getElementById("clock").firstChild.nodeValue = timeString;
-
-     document.getElementById("date").firstChild.nodeValue = dateString;
+     document.getElementById("clock").innerHTML = timeString;
 
      //document.write('<h3' + timeString + '</h3>');
 

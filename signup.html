@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <title>Midterm Exam: Signup Page</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/index_style.css" />
         <link href="css/signup.css" type="text/css" rel="stylesheet" />
 
-        <script src="js/login.js"></script>
+        <script src="js/signup.js"></script>
         <script src="js/clock.js"></script>
+    	<script src="js/navbarEditForMember.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
-    <!-- setInterval('updateClock()', 1000) MOVED TO modifyNavbar_members() -->
-    <body onload="modifyNavbar_members(); updateClock();">
+
+    <body onload="setInterval('updateClock()', 1000); modifyNavbar_members();">
         <header id="navbar">
             <div class="container-fluid collapse" id="navbarToggleExternalContent">
                 <nav id="myNavbar" class="navbar navbar-default" role="navigation">
@@ -49,7 +50,7 @@
                                         <li><a href="#">Settings</a></li> -->
                                     </ul>
                                 </li>
-								<li class="navbar-toggler"><img src="images/logo2.png" style="padding-top: 13px; padding-left: 10px; height:45px; opacity:0.8;"></li>
+                                <li class="navbar-toggler"><img src="images/logo2.png" style="padding-top: 13px; padding-left: 10px; height:45px; opacity:0.8;"></li>
                             </ul>
                         </div>
                     </div>
@@ -63,34 +64,38 @@
                           <li id="toggleNav"><a onclick='padMenu()' class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
                              <b class="	glyphicon glyphicon-triangle-top"> menu</b></a></li>
                       </ul>
-                  </div>
-              </div>
-          </nav>
-        </div>
-          </header>
+    	              </div>
+    	          </div>
+    	      </nav>
+    	    </div>
+    	</header>
 
-          <div class="container-fluid bg-1" id="loginform">
+          <div class="container-fluid bg-1" id="signupform">
                   <fieldset>
-                      <legend class="form-title text-center">Login</legend>
-                      <label>Username:</label> </br>
-                      <input id="enterUsername" type="text" name="username" required autofocus onblur="checkUser(this.value)"/> </br>
-                      <p><div id="usernamefeedback"></div></p>
+                      <legend class="form-title text-center">Sign up</legend>
+                      <label style="position: inline;">Username:</label> </br>
+                      <input id="enterUsername" type="text" name="username" onblur="checkUser(this.value)" required autofocus/> </br>
+                      <p><div class="not-active text-left" id="usernamefeedback"></div></p>
 
-                      <label>Password:</label></br>
-                      <input id="enterPassword" type="password" name="password" required onblur="checkPassword()"/>
-                      <p><div id="passwordfeedback"></div></p>
+                      <label style="position: inline;">Password:</label></br>
+                      <input id="enterPassword" type="password" name="password" onblur="checkPassword()" required/>
+                      <p><div class="not-active text-left" id="passwordfeedback"></div></p>
                   </fieldset>
 
                   <div class="clearfix">
-                    <button id="submitbtn" type="submit"  class="submitbtn button" style="vertical-align:middle" onclick="checkCredentials()"><span onclick="checkCredentials()">Login</span></button>
+                    <button id="submitbtn" type="submit"  class="submitbtn button" style="vertical-align:middle"><span onclick="submitCredentials()">Submit</span></button>
                   </div>
+              <script src="js/signup.js"></script>
+          </div>
 
-                  <div class="container-fluid text-center">
-                      <p><em>No account? </em> <a style="" href="signup.html">Sign up.</a> </em></p>
-                  </div>
+          <div class="container-fluid bg-4 text-center" id="lengthWarning">
+              <p><em>Username and password must be at least 5 characters </em></p>
+
           </div>
 
       </body>
+
+
 
 
 
