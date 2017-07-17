@@ -201,6 +201,68 @@
 				<li>Updates through date functions in javascript</li>
 			</ul>
 		</ul>
+<hr />
+		<h2>Week 8</h2>
+		<ul>
+			<li>Created elevator control panel</li>
+			<ul>
+				<li>Created block elements</li>
+				<li>Bootstrap to wrap blocks to single line for small screen sizes, two per line on larger screens</li>
+				<li>Inserted pictures for elevator control buttons</li>
+			</ul>
+		</ul>
+
+<hr />
+		<h2>Week 9</h2>
+		<ul>
+			<li>Created Tables in "elevator" Database</li>
+			<ul>
+				<li>CANLog</li>
+				<ul>
+					<li>Used for logging traffic on CAN bus</li>
+					<li>Debugging, and displaying information on website</li>
+				</ul>
+				<li>clientQueue</li>
+				<ul>
+					<li>Used by supervisor to process requests from website</li>
+					<li>This table is updated from the control panel</li>
+					<li>This table will also be updated from the supervisor by deleting requests once they have been completed</li>
+				</ul>
+				<li>clientRequests</li>
+				<ul>
+					<li>This table is used by the control panel to update buttons based on if they are active or not</li>
+					<li>This table is modified by the control panel to set status=1 and also modified by the supervisor to set status=0 after succesful completion of a request</li>
+				</ul>
+				<li>currentState</li>
+				<ul>
+					<li>This table is used by the control panel</li>
+					<li>This table contains only the most recent information about the elevators status</li>
+				</ul>
+				<li>memberInfo</li>
+				<ul>
+					<li>This table is used to store member login information</li>
+					<li>All authentication checks will go through this table</li>
+				</ul>
+			</ul>
+		</ul>
+<hr />
+		<h2>Week 10</h2>
+		<ul>
+			<li>Integrated MySQL database to control page</li>
+			<li>Button presses now update appropriate tables in database to each specific request</li>
+			<br />
+			<li>Redesign the control page so that three coloums are together on large screens and single coloum rows on small screens</li>
+			<li>Changed colour scheme to match the rest of the website style</li>
+			<li>Added jumobtron with an image of a control center</li>
+			<li>Added greeting for the username that is currently logged in</li>
+		</ul>
+
+<hr />
+		<h2>Week 11</h2>
+		<ul>
+			<li>Integrated my control updates with group portions</li>
+		</ul>
+<hr />
 
 
 		<p>Copyright &copy 2017 James Sonnenberg</p>
