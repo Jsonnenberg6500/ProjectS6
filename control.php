@@ -1,3 +1,7 @@
+<?php
+  echo "<body style='background-color: lightgrey'>";
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -11,9 +15,9 @@
   <meta http-equiv="Expires" content="-1">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="stylesheet" type="text/css" href="css/control_style.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/control_style.css" />
 
   <script type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -22,78 +26,69 @@
 </head>
 
 <body>
-  <div class="container-fluid page">
-    <h1>Welcome to the Elevator Control Panel! </h1>
+
+
+  <div class="container-fluid page text-align-center">
        <div class="row">
-            <div class="col-md-5 col-xs-12 block">
-                 <p><b>Elevator Status</b></p>
+            <div class="col-md-4 col-xs-12 block">
+                 <h3><b>Elevator Status</b></h3>
                  <br>
                  <p>Current Floor: </p>
                  <p>Door State: </p>
                  <p>Moving: </p>
             </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-5 col-xs-12 block">
-                 <p><b>Floor Nodes</b></p>
+            <div class="col-xs-12 block col-md-4">
+                 <h3><b>Floor Nodes</b></h3>
                  <br>
-                 <p>Request Floor 1: </p>
-                 <img src="images/floor1.png" title="Floor 1 Button" class="button"><img>
+                 <p></p>
+                  <form action="member.php" method="POST">
+                    <input type="submit" class="button status<?php echo $status;?>" name="Request1" value="Request 1" onclick="on_callPhp()"/>
+                  </form>
 
-                 <script type="text/javascript">
-
-                    function on_callPhp()
-                    {
-                      var result="<?php php_func();?>";
-                      alert(result);
-                      return false;
-                    }
-                  </script>
-
-                 <form action="" method="POST">
-                   <input type="submit" class="button" name="Request" value="Request 1" onclick="on_callPhp()"/>
+                 <p></p>
+                 <form action="member.php" method="POST">
+                   <input type="submit" class="button" name="Request2" value="Request 2" />
                  </form>
 
-                 <?php
-                    function php_func()
-                    {
-                      echo "Hello PHP";
-                    }
-                 ?>
-
-                 <p>Request Floor 2: </p>
-                 <img src="images/Floor2.png" title="Floor 2 Button" class="button"><img>
-                 <input type="submit" class="button" name="Request" value="Request 2" />
-                 <p>Request Floor 3: </p>
-                 <img src="images/Floor3.png" title="Floor 3 Button" class="button"><img>
-                 <input type="submit" class="button" name="Request" value="Request 3" />
+                 <p></p>
+                 <form action="member.php" method="POST">
+                   <input type="submit" class="button" name="Request3" value="Request 3" />
+                 </form>
             </div>
-       </div>
 
-       <div class="row">
-            <div class="col-md-5 col-xs-12 block">
-              <p><b>Floor Nodes</b></p>
+
+            <div class="col-md-4 col-xs-12 block">
+              <h3><b>Elevator Controller</b></h3>
               <br>
-              <p>Floor 1: </p>
-              <img src="images/floor1.png" title="Floor 1 Button" class="button"><img>
-              <input type="submit" class="button" name="Request" value="Floor 1" />
-              <p>Floor 2: </p>
-              <img src="images/Floor2.png" title="Floor 2 Button" class="button"><img>
-              <input type="submit" class="button" name="Request" value="Floor 2" />
-              <p>Floor 3: </p>
-              <img src="images/Floor3.png" title="Floor 3 Button" class="button"><img>
-              <input type="submit" class="button" name="Request" value="Floor 3" />
-              <p>Door Open </p>
-              <img src="images/floor1.png" title="Door Open Button" class="button"><img>
-              <input type="submit" class="button" name="Request" value="Door Open" />
-              <p>Door Close </p>
-              <img src="images/floor1.png" title="Door Close Button" class="button"><img>
-              <input type="submit" class="button" name="Request" value="Door Close" />
+              <p></p>
+              <form action="member.php" method="POST">
+                <input type="submit" class="button" name="Floor1" value="Floor 1" />
+              </form>
+
+              <p></p>
+              <form action="member.php" method="POST">
+                <input type="submit" class="button" name="Floor2" value="Floor 2" />
+              </form>
+
+              <p></p>
+              <form action="member.php" method="POST">
+                <input type="submit" class="button" name="Floor3" value="Floor 3" />
+              </form>
+
+              <p></p>
+              <form action="member.php" method="POST">
+                <input type="submit" class="button" name="DoorOpen" value="Door Open" />
+              </form>
+
+              <p></p>
+              <form action="member.php" method="POST">
+                <input type="submit" class="button" name="DoorClose" value="Door Close" />
+              </form>
             </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-5 col-xs-12 block">
-              <p><b>Supervisor</b></p>
+</div>
+      <div class="row block">
+            <div class="col-md-12">
+              <h3><b>Supervisor</b></h3>
               <br>
               <p>Current Request</p>
               <p>CAN BUS: </p>
@@ -104,3 +99,62 @@
   </div>
 </body>
 </html>
+
+
+
+    <?php
+/**********************************************************
+*
+*             This updates clientQueue
+*
+**************************************************************/
+    if (isset($_SESSION['username'])) {
+        $query = 'INSERT INTO clientQueue(activeID)
+                  VALUES(:requestID)';
+        $statement = $db->prepare($query);
+    //    $status = $_POST['status'];
+        if($_POST['Request1']){
+            $requestID = 1;
+        }
+        else if($_POST['Request2']){
+            $requestID = 2;
+        }
+        else if($_POST['Request3']){
+            $requestID = 3;
+        }
+        else if($_POST['Floor1']){
+            $requestID = 4;
+        }
+        else if($_POST['Floor2']){
+            $requestID = 5;
+        }
+        else if($_POST['Floor3']){
+            $requestID = 6;
+        }
+        else if($_POST['DoorOpen']){
+            $requestID = 7;
+        }
+        else if($_POST['DoorClose']){
+            $requestID = 8;
+        }
+        $params = [
+        //    'status' => $status,
+            'requestID' => $requestID
+        ];
+        $result = $statement->execute($params);
+
+
+        $query =  'UPDATE clientRequests
+                   SET status=1
+                   WHERE requestID ='.$requestID;
+
+        $statement2 = $db->prepare($query);
+
+        $params2 = [
+        //    'status' => $status,
+            'ID' => $requestID
+        ];
+        $result2 = $statement2->execute($params2);
+
+    }
+    ?>
