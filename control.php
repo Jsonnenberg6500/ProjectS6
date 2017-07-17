@@ -25,12 +25,52 @@
 
 </head>
 
-<body>
+<script>
+	
+function updateData() {
+
+setInterval(loadDoc, 500);	
+setInterval(dispQueue,500);	
+	
+}
+	
+	
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("POST", "testingajax.php", true);
+  xhttp.send();
+}
+	
+	
+function dispQueue() {
+  var xhttp2 = new XMLHttpRequest();
+  xhttp2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("displayQueue").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp2.open("POST", "testajaxv2.php", true);
+  xhttp2.send();
+}	
+	
+	
+</script>	
+	
+	
+	
+<body onload="javascript:updateData()" >
 
 
   <div class="container-fluid page text-align-center">
        <div class="row">
-            <div class="col-md-4 col-xs-12 block">
+            <div id = "displayQueue" class="col-md-4 col-xs-12 block">
                  <h3><b>Elevator Status</b></h3>
                  <br>
                  <p>Current Floor: </p>
@@ -87,7 +127,7 @@
             </div>
 </div>
       <div class="row block">
-            <div class="col-md-12">
+            <div id="demo" class="col-md-12">
               <h3><b>Supervisor</b></h3>
               <br>
               <p>Current Request</p>
