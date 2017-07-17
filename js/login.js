@@ -57,7 +57,7 @@ function checkCredentials(){
           else if (this.responseText == "ok") {
               modifyNavbar_members();
               document.getElementById('loginform').innerHTML = "<div class=\"container-fluid text-center bg-1\"><b>Login successful!</b></div>\
-                </br><ul><li><a href=\"php/members.php\">Click here</a> to go to the elevator control panel</li>\
+                </br><ul><li><a href=\"member.php\">Click here</a> to go to the elevator control panel</li>\
                     <li><a href=\"index.php\">Click here</a> to return to the homepage</li></ul>";
           }
       }

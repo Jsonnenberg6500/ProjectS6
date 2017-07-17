@@ -11,7 +11,7 @@ function modifyNavbar_members(){
             if (this.responseText == "fail") {/*Do nothing*/}
             else {
                 document.getElementById('memberGreeting').innerHTML = "<a><em style=\"text-transform:none\">Hello, <b style=\"text-transform:lowercase\">" +this.responseText+ "</b></em>!</a>";
-                document.getElementById('memberDropdown').innerHTML = "<li><a href=\"control.php\"><span class=\"glyphicon glyphicon-modal-window\"></span> &nbsp; Elevator UI</a></li> \
+                document.getElementById('memberDropdown').innerHTML = "<li><a href=\"member.php\"><span class=\"glyphicon glyphicon-modal-window\"></span> &nbsp; Elevator UI</a></li> \
                 <li><a href=\"php/logout.php\"><span class=\"glyphicon glyphicon-log-out\"></span>  &nbsp; Log Out</a></li>";
             }
         }
