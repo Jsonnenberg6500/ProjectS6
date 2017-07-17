@@ -1,8 +1,9 @@
 .block{
-     border: solid blue 5px;
+     border: solid black 0px;
      padding: 30px 20px;
-     margin: 30px auto;
-     border-radius: 25px;
+     margin: auto ;
+     background-color: lightgrey;
+     border-radius: 0px;
 }
 
 .page{
@@ -14,5 +15,43 @@
 }
 
 .row{
-     display: flex;
+     overflow: hidden;
+}
+
+[class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+
+input[type=submit] {
+    background-color: #555555; /* Black */
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 24px;
+}
+
+input[type=submit]:hover {
+    box-shadow: 0px 8px 16px 0 rgba(255,255,255,0.5), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.jumbotron {
+    text-align: center;
+    color: white;
+    height: 45%;
+    background-image: url(http://extrawall.net/images/wallpapers/56_1280x1024_hi_tech_desktop_control_center.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.jumbotron h1 {
+    color: white;
+}
+
+h3 {
+    text-align: center;
 }
