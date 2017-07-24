@@ -45,17 +45,12 @@
 
     if (isset($_SESSION['username'])) {
         //echo "Welcome, " . $_SESSION['username'] . "!<br />";
-        while ($row = $result->fetch(PDO::FETCH_ASSOC))
-    	{
-    	$username = $row['username'];
-    	$password = $row['password'];
-    	$email = $row['email'];
-        }
+        $username = $_SESSION['username'];
 
          echo "<div class=\"jumbotron\">
          <h2>Greetings $username! </h2>
                <h1>Welcome to the Elevator Control Panel! </h1>
-              </div>"; 
+              </div>";
 
         require 'control.php';
 

@@ -2,24 +2,18 @@
     session_start();
 
 	$db = new PDO(
-	
+
 	'mysql:host=127.0.0.1;dbname=elevator',
 	'root',
 	''
-		
-		
+
+
 	);
 
-	
-	$result = $db->prepare('SELECT * FROM CANLog ORDER BY DATE DESC' );
-	$result->execute();
-	
 
-	echo "CANLOG DATABASE";
-	echo "<br>";
-	echo "<br>";
-	echo "<br>";
-		
+	$result = $db->prepare('SELECT * FROM CANLog ORDER BY DATE DESC, TIME DESC' );
+	$result->execute();
+
 	while ($row = $result->fetch(PDO::FETCH_ASSOC))
 	{
 	$date = $row['date'];
@@ -30,22 +24,16 @@
 	$doorState =$row['doorState'];
 	$signalID = $row['signalID'];
 
-	echo "Date: ";
-	echo $date;
-	
-	echo"<p> </p>";
-		
-	echo "Time: ";
-	echo $time;
-		
-	echo"<p> </p>";
-		
-	echo "floorQueue: ";
-	echo $floorQueue;
-	
-	echo "<br>";
-	echo "<br>";
-	echo "<br>";
+	echo "Date: " . $date . "\n";
+
+	echo "Time: " . $time . "\n";
+
+	echo "floorQueue: " . $floorQueue . "\n";
+
+    echo "Signal: " . $signalID . "\n";
+
+    echo "\n\n";
+
 	}
 
 

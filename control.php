@@ -40,8 +40,8 @@ function loadDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML =
-      this.responseText;
+
+      document.getElementById("demo").innerHTML = this.responseText;
     }
   };
   xhttp.open("POST", "testingajax.php", true);
@@ -142,14 +142,13 @@ function dispButton() {
             </div>
 </div>
       <div class="row block">
-		  <textarea style="width: 50%; height: 500px;">
-            <div id="demo" class="col-md-12">
+          <h3>CANLOG DATABASE</h3>
+            <textarea id="demo" style="width: 100%; height: 300px;">
               <h3><b>Supervisor</b></h3>
               <br>
               <p>Current Request</p>
               <p>CAN BUS: </p>
-            </div>
-		  </textarea>
+          </textarea>
        </div>
 
 
