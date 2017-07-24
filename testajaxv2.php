@@ -29,13 +29,43 @@
 
 	if($currentPosition == 0)
 	{
-		$doorState = 0; 	
+		$doorState = 1; 	//door closed
+		$currentPosition = 'car moving';
 	}
 		
+	if($currentPosition == 1)
+	{
+		
+		$currentPosition = 'floor 1';
+	}
+	
+	if($currentPosition == 2)
+	{
+		
+		$currentPosition = 'floor 2';
+	}
+		
+	if($currentPosition == 3)
+	{
+		
+		$currentPosition = 'floor 3';
+	}
+	
+		
+	
 	echo "currentState: ";
 	echo $currentPosition;
 	
 	echo"<p> </p>";
+	
+	if($doorState == 0)
+	{
+		$doorState = 'door open';
+	}
+	else
+	{
+		$doorState = 'door closed';	
+	}
 	
 	echo "doorState: ";
 	echo $doorState;
