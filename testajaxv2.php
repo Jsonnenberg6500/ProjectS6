@@ -27,6 +27,11 @@
 	$doorState = $row['doorState'];
 	$other = $row['other'];
 
+	if($currentPosition == 0)
+	{
+		$doorState = 0; 	
+	}
+		
 	echo "currentState: ";
 	echo $currentPosition;
 	
