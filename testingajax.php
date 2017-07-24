@@ -11,7 +11,7 @@
 	);
 
 	
-	$result = $db->prepare('SELECT * FROM CANLog');
+	$result = $db->prepare('SELECT * FROM CANLog ORDER BY DATE DESC' );
 	$result->execute();
 		
 	echo "CANLOG DATABASE";
