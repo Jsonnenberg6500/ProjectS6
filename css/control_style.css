@@ -23,10 +23,18 @@
     padding-bottom: 99999px;
 }
 
+.disabled {
+    cursor: not-allowed;
+    
+}
 input[type=submit] {
-    background-color: #555555; /* Black */
-    border: none;
-    color: white;
+    background-color: white;
+    opacity: 0.6;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border: solid black 2px;
+    border-radius: 5px;
+    color: black;
     width: 100%;
     padding: 15px 32px;
     text-align: center;
@@ -36,7 +44,8 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    box-shadow: 0px 8px 16px 0 rgba(255,255,255,0.5), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #555555; /* Black */
+    color: white;
 }
 
 .jumbotron {

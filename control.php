@@ -26,15 +26,16 @@
 </head>
 
 <script>
-	
+
 function updateData() {
 
-setInterval(loadDoc, 500);	
-setInterval(dispQueue,500);	
-	
+setInterval(loadDoc, 500);
+setInterval(dispQueue,500);
+setInterval (dispButton, 500);
+
 }
-	
-	
+
+
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -46,8 +47,8 @@ function loadDoc() {
   xhttp.open("POST", "testingajax.php", true);
   xhttp.send();
 }
-	
-	
+
+
 function dispQueue() {
   var xhttp2 = new XMLHttpRequest();
   xhttp2.onreadystatechange = function() {
@@ -58,13 +59,25 @@ function dispQueue() {
   };
   xhttp2.open("POST", "testajaxv2.php", true);
   xhttp2.send();
-}	
-	
-	
-</script>	
-	
-	
-	
+}
+
+function dispButton() {
+  var xhttp3 = new XMLHttpRequest();
+  xhttp3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("ajaxButton").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp3.open("POST", "buttonsAjax.php", true);
+  xhttp3.send();
+}
+
+
+</script>
+
+
+
 <body onload="javascript:updateData()" >
 
 
@@ -82,7 +95,9 @@ function dispQueue() {
                  <br>
                  <p></p>
                   <form action="member.php" method="POST">
-                    <input type="submit" class="button status<?php echo $status;?>" name="Request1" value="Request 1" onclick="on_callPhp()"/>
+                    <div class="ajaxButton">
+                      <input type="submit" class="button" name="Request1" value="Request 1" onclick="on_callPhp()"/>
+                    </div>
                   </form>
 
                  <p></p>
