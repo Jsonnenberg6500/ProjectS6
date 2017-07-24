@@ -142,12 +142,14 @@ function dispButton() {
             </div>
 </div>
       <div class="row block">
+		  <textarea style="width: 50%; height: 500px;">
             <div id="demo" class="col-md-12">
               <h3><b>Supervisor</b></h3>
               <br>
               <p>Current Request</p>
               <p>CAN BUS: </p>
             </div>
+		  </textarea>
        </div>
 
 
