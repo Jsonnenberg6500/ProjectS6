@@ -380,6 +380,18 @@
 		            </ul>
 		        </div>
 
+				<button class="accordion bg-1">Week 12</button>
+					<div class="bg-4 panel text-left dropdownlogbook ">
+					  <ul>
+						  <li>Fixed: CANLog now updates when a request is made on the client side.  </li>
+						  <li>Started perparation for integration:
+							  <ul>
+								  <li>Reorganized the main application loop code (Supervisor) so that the state machine will function properly with CAN node input <b>as well as</b> UI input</li>
+								  <li>Analyzed supervisor code for places where issues may arise upon connecting the floor nodes to the CAN bus along with the client UI functionality.  The only major potential issue
+									  is if any race conditions could arise in the state machine.  However, in essence, the client UI should really just be another "floor node", so this really shouldn't be a problem.
+								  </li>
+						</ul>
+					</div>
 
 	</div>
 
