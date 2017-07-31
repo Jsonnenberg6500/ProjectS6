@@ -22,64 +22,11 @@
   <script type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/controlJS.js"></script>
 
 </head>
 
-<script>
-
-function updateData() {
-
-setInterval(loadDoc, 500);
-setInterval(dispQueue,500);
-setInterval (dispButton, 500);
-
-}
-
-
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-
-      document.getElementById("demo").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("POST", "testingajax.php", true);
-  xhttp.send();
-}
-
-
-function dispQueue() {
-  var xhttp2 = new XMLHttpRequest();
-  xhttp2.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("displayQueue").innerHTML =
-      this.responseText;
-    }
-  };
-  xhttp2.open("POST", "testajaxv2.php", true);
-  xhttp2.send();
-}
-
-function dispButton() {
-  var xhttp3 = new XMLHttpRequest();
-  xhttp3.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("ajaxButton").innerHTML =
-      this.responseText;
-    }
-  };
-  xhttp3.open("POST", "buttonsAjax.php", true);
-  xhttp3.send();
-}
-
-
-</script>
-
-
-
 <body onload="javascript:updateData()" >
-
 
   <div class="container-fluid page text-align-center">
        <div class="row">
@@ -95,19 +42,23 @@ function dispButton() {
                  <br>
                  <p></p>
                   <form action="member.php" method="POST">
-                    <div class="ajaxButton">
-                      <input type="submit" class="button" name="Request1" value="Request 1" onclick="on_callPhp()"/>
+                    <div id="ajaxButton1">
+                      <input type="submit" class="button" name="Request1" value="Request 1"/>
                     </div>
                   </form>
 
                  <p></p>
                  <form action="member.php" method="POST">
-                   <input type="submit" class="button" name="Request2" value="Request 2" />
+                   <div id="ajaxButton2">
+                     <input type="submit" class="button" name="Request2" value="Request 2" />
+                   </div>
                  </form>
 
                  <p></p>
                  <form action="member.php" method="POST">
-                   <input type="submit" class="button" name="Request3" value="Request 3" />
+                   <div id="ajaxButton3">
+                    <input type="submit" class="button" name="Request3" value="Request 3" />
+                   </div>
                  </form>
             </div>
 
@@ -117,27 +68,37 @@ function dispButton() {
               <br>
               <p></p>
               <form action="member.php" method="POST">
+                <div id="ajaxButton4">
                 <input type="submit" class="button" name="Floor1" value="Floor 1" />
+              </div>
               </form>
 
               <p></p>
               <form action="member.php" method="POST">
+                <div id="ajaxButton5">
                 <input type="submit" class="button" name="Floor2" value="Floor 2" />
+              </div>
               </form>
 
               <p></p>
               <form action="member.php" method="POST">
+                <div id="ajaxButton6">
                 <input type="submit" class="button" name="Floor3" value="Floor 3" />
+              </div>
               </form>
 
               <p></p>
               <form action="member.php" method="POST">
+                <div id="ajaxButton7">
                 <input type="submit" class="button" name="DoorOpen" value="Door Open" />
+              </div>
               </form>
 
               <p></p>
               <form action="member.php" method="POST">
+                <div id="ajaxButton8">
                 <input type="submit" class="button" name="DoorClose" value="Door Close" />
+              </div>
               </form>
             </div>
 </div>
@@ -159,6 +120,7 @@ function dispButton() {
 
 
     <?php
+    error_reporting(0);
 /**********************************************************
 *
 *             This updates clientQueue
@@ -169,6 +131,7 @@ function dispButton() {
                   VALUES(:requestID)';
         $statement = $db->prepare($query);
     //    $status = $_POST['status'];
+
         if($_POST['Request1']){
             $requestID = 1;
         }

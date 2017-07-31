@@ -20,10 +20,10 @@
 	$status = $row['status'];
 	$requestID = $row['requestID'];
 
-	if($status == 1 && $requestID == 1){
-		echo "<input type=\"\" class=\"disabled\" name=\"Request1\" value=\"Request 1\"/>";
-     }else if($status == 0 && $requestID == 1){
-		echo "<input type=\"submit\" class=\"disabled\" name=\"Request1\" value=\"Request 1\"/>";
+	if($status == 1 && $requestID == 4){
+		echo "<input type=\"\" class=\"disabled\" name=\"Floor1\" value=\"Floor 1\"/>";
+     }else if($status == 0 && $requestID == 4){
+		echo "<input type=\"submit\" class=\"disabled\" name=\"Floor1\" value=\"Floor 1\"/>";
 	}
 /*
 	else if($status == 1 && $requestID == 2){
