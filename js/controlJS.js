@@ -9,8 +9,6 @@ setInterval (dispButton3, 500);
 setInterval (dispButton4, 500);
 setInterval (dispButton5, 500);
 setInterval (dispButton6, 500);
-setInterval (dispButton7, 500);
-setInterval (dispButton8, 500);
 }
 
 

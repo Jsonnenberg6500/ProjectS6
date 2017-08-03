@@ -27,7 +27,7 @@
     cursor: not-allowed;
     background-color: #555555; /* Black */
     color: white;
-    border: solid black 2px;
+    border: solid red 2px;
     border-radius: 5px;
     width: 100%;
     padding: 15px 32px;
